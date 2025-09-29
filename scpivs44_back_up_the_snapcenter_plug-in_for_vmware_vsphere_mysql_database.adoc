@@ -1,0 +1,41 @@
+---
+sidebar: sidebar 
+permalink: scpivs44_back_up_the_snapcenter_plug-in_for_vmware_vsphere_mysql_database.html 
+keywords:  
+summary: SnapCenter Plug-in for VMware vSphere包含一個 MySQL 資料庫（也稱為 NSM 資料庫），其中包含該外掛程式執行的所有作業的元資料。您應該定期備份此儲存庫。 
+---
+= 備份SnapCenter Plug-in for VMware vSphere
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+SnapCenter Plug-in for VMware vSphere包含一個 MySQL 資料庫（也稱為 NSM 資料庫），其中包含該外掛程式執行的所有作業的元資料。您應該定期備份此儲存庫。
+
+在執行遷移或升級之前，您還應該備份儲存庫。
+
+.開始之前
+當按需備份作業已在執行時，請勿啟動備份 MySQL 資料庫的作業。
+
+.步驟
+. 從 VMware vSphere 用戶端中，選擇SnapCenter Plug-in for VMware vSphere所在的虛擬機器。
+. 在虛擬設備的「*摘要*」標籤中，選擇「啟動遠端控制台*」或「啟動 Web 控制台*」以開啟維護控制台視窗。
++
+image:scpivs44_image21.png["維護控制台視窗"]
+
+. 從主選單中，輸入選項*1)應用程式配置。 *
+. 從應用程式設定選單中，輸入選項*6) MySQL 備份和還原。 *
+. 從 MySQL 備份和還原設定選單中，輸入選項 *1) 設定 MySQL 備份*。
+. 在提示下，輸入儲存庫的備份位置、要保留的備份數量以及備份開始的時間。
++
+輸入後，所有輸入都會被儲存。當達到備份保留數時，執行新備份時會刪除較舊的備份。
+
++
+
+TIP: 儲存庫備份名為「backup-<date>」。由於儲存庫復原功能會尋找「備份」前綴，因此您不應變更它。
+
+

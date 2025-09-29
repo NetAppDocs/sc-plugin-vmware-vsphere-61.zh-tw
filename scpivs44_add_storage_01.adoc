@@ -1,0 +1,108 @@
+---
+sidebar: sidebar 
+permalink: scpivs44_add_storage_01.html 
+keywords:  
+summary: 新增儲存裝置可讓SnapCenter Plug-in for VMware vSphere能夠識別和管理 vCenter 中的備份和還原作業。 
+---
+= 新增儲存
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+在備份或還原虛擬機器之前，您必須新增儲存叢集或儲存虛擬機器。新增儲存裝置可讓SnapCenter Plug-in for VMware vSphere能夠識別和管理 vCenter 中的備份和還原作業。
+
+* 使用哪個 GUI
++
+使用 VMware vSphere 用戶端新增儲存體。
+
+* 大型 LUN
++
+SnapCenter Plug-in for VMware vSphere支援ASA聚合上高達 128 TB 的大型 LUN 上的資料儲存。對於大型 LUN， SnapCenter僅支援厚配置 LUN 以避免延遲。
+
+* VMware 虛擬磁碟區 (vVols)
++
+您必須將儲存叢集新增至SnapCenter Plug-in for VMware vSphere和ONTAP tools for VMware vSphere中，才能讓 vVol DataProtection 正常運作。
+
++
+如需更多信息，請參閱適用ONTAP tools for VMware vSphere文件。此外，請參閱 https://imt.netapp.com/matrix/imt.jsp?components=134348;&solution=1517&isHWU&src=IMT["NetApp互通性表工具"^]有關ONTAP工具支援的版本的最新資訊。
+
+
+
+.開始之前
+ESXi 伺服器、SnapCenter Plug-in for VMware vSphere以及每個 vCenter 必須同步到相同時間。如果您嘗試新增儲存但 vCenter 的時間設定不同步，則操作可能會失敗並出現 Java 憑證錯誤。
+
+.關於此任務
+SnapCenter Plug-in for VMware vSphere在直接連接的儲存虛擬機器和儲存叢集中的儲存虛擬機器上執行備份和還原作業。
+
+
+NOTE: 如果您使用適用SnapCenter Plug-in for VMware vSphere來支援 VMDK 上的基於應用程式的備份，則必須使用SnapCenter GUI 輸入儲存驗證詳細資訊並註冊儲存系統。
+
+* 對於連結模式的 vCenter，您必須分別為每個 vCenter 新增儲存系統。
+* 如果要新增 SVM，則儲存 VM 的名稱必須解析為管理 LIF。
++
+如果您已在SnapCenter中的 _etc\hosts_ 檔案中新增了儲存虛擬機器名稱的項目，則必須確保這些項目也可以從虛擬裝置中解析。如果不是，您應該將類似的項目新增至裝置內的 _etc/hosts_ 檔案。
+
++
+如果您新增的儲存虛擬機器的名稱無法解析為管理 LIF，則排程的備份作業將會失敗，因為外掛程式無法發現該儲存虛擬機器上的任何資料儲存庫或磁碟區。如果發生這種情況，請將儲存虛擬機器新增至SnapCenter並指定管理 LIF，或新增包含儲存虛擬機器的叢集並指定叢集管理 LIF。
+
+* 儲存驗證詳細資訊不會在SnapCenter Plug-in for VMware vSphere的多個執行個體之間或 Windows SnapCenter伺服器與 vCenter 上的SnapCenter插件之間共用。
+
+
+.步驟
+. 從 vCenter 用戶端捷徑頁面中，選擇SnapCenter Plug-in for VMware vSphere。
+. 在 SCV 的左側導覽窗格中，選擇 *儀表板* > *儲存系統*。
+. 在儲存系統頁面上，選擇*新增*選項。
+. 在「新增儲存系統」精靈中，輸入下表所列的基本儲存虛擬機器或叢集資訊：
++
+|===
+| 對於這個領域… | 這樣做… 
+
+
+| 儲存系統 | 輸入儲存叢集或儲存虛擬機器的 FQDN 或管理 LIF 的 IP 位址。  SnapCenter Plug-in for VMware vSphere不支援不同叢集上具有相同名稱的多個儲存虛擬機器。 
+
+
+| 身份驗證方法 | 選擇憑證或證書。支援兩種類型的證書：- https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/SnapCenter/How_to_configure_a_self-signed_certificate_for_storage_system_authentication_with_SCV["自簽名證書"^] - https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/SnapCenter/How_to_configure_a_CA_signed_certificate_for_storage_system_authentication_with_SCV["CA 簽署憑證"] 。 
+
+
+| 使用者名稱 | 當您選擇憑證作為身份驗證方法時，此欄位可見。輸入用於登入儲存虛擬機器或叢集的ONTAP使用者名稱。 
+
+
+| 密碼 | 當您選擇憑證作為身份驗證方法時，此欄位可見。輸入儲存虛擬機器或叢集登入密碼。 
+
+
+| 證書 | 當您選擇憑證作為身份驗證方法時，此欄位可見。瀏覽以選擇證書檔案。 
+
+
+| 私鑰 | 當您選擇憑證作為身份驗證方法時，此欄位可見。瀏覽以選擇私鑰檔案。 
+
+
+| 協定 | 選擇儲存協定。 
+
+
+| 港口 | 儲存系統接受的連接埠。  - 443 用於 HTTPS 連接 - 80 用於 HTTP 連接 
+
+
+| 暫停 | 輸入SnapCenter Plug-in for VMware vSphere在操作逾時之前應等待的秒數。預設值為 60 秒。 
+
+
+| 首選 IP 位址 | 如果儲存虛擬機器具有多個管理 IP 位址，請勾選此方塊並輸入您希望SnapCenter Plug-in for VMware vSphere使用的 IP 位址。  *注意：*輸入 IP 位址時請勿使用方括號（[]）。 
+
+
+| 事件管理系統 (EMS) 和AutoSupport設置 | 如果您想要將 EMS 訊息傳送到儲存系統 syslog，或想要將AutoSupport訊息傳送到儲存系統以套用保護、完成還原作業或失敗操作，請選取對應的核取方塊。選取 *向儲存系統發送失敗操作的AutoSupport通知* 複選框和 *將SnapCenter伺服器事件記錄到 syslog* 複選框以啟用AutoSupport通知。 
+
+
+| 將SnapCenter伺服器事件記錄到 syslog | 勾選此方塊以記錄適用於SnapCenter Plug-in for VMware vSphere的事件。 
+
+
+| 向儲存系統發送操作失敗的AutoSupport通知 | 如果您希望在資料保護作業失敗時收到AutoSupport通知，請勾選此方塊。您也必須在儲存虛擬機器上啟用AutoSupport並設定AutoSupport電子郵件設定。 
+|===
+. 選擇*新增*。
++
+如果您新增了儲存集群，則該集群中的所有儲存虛擬機器都會自動新增。自動新增的儲存虛擬機器（有時稱為「隱式」儲存虛擬機器）在叢集摘要頁面上顯示，並使用連字號 (-) 而不是使用者名稱。僅針對明確的儲存實體顯示使用者名稱。
+
+

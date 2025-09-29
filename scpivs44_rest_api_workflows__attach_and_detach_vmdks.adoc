@@ -1,0 +1,65 @@
+---
+sidebar: sidebar 
+permalink: scpivs44_rest_api_workflows__attach_and_detach_vmdks.html 
+keywords:  
+summary: 若要使用適用於SnapCenter Plug-in for VMware vSphere對 VMDK 執行連接和分離操作，必須遵循規定的 REST API 呼叫順序。 
+---
+= 用於連接和分離 VMDK 的 REST API 工作流程
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+若要使用適用於SnapCenter Plug-in for VMware vSphere對 VMDK 執行連接和分離操作，必須遵循規定的 REST API 呼叫順序。
+
+對於每個 REST API，新增 `\https://<server>:<port>`在 REST API 的前面形成一個完整的端點。
+
+
+
+== 若要連接 VMDK，請遵循以下工作流程：
+
+|===
+| 步 | REST API | 評論 
+
+
+| 1 | 前往 `\http://<vCenter-IP>/mob` | 從 VMware 管理物件 URL 中尋找 VM moref。請注意您想要附加 VMDK 的 VM 的 *moref*。 
+
+
+| 2 | `/4.1/vm/{moref}/backups` | `Get VM Backups`取得指定 VM 的備份清單。傳遞步驟 1 中的 *moref*。記下您要還原的備份的 *backupId*。 
+
+
+| 3 | `/4.1/vm/{moref}/backups/
+{backupId}/vmdklocations` | `Get VMDK Locations`取得指定 VM 的 VMDK 清單。傳遞步驟 2 中的 *backupId* 和步驟 1 的 *moref*。注意*vmdkLocationsList*資訊。 
+
+
+| 4 | `/4.1/vm/{moref}/attachvmdks`  a| 
+`Attach VMDKs`將指定的 VMDK 附加到原始 VM。傳遞步驟 2 中的 *backupId* 和步驟 1 的 *moref*。將步驟 3 中的 *vmdkLocationsList* 傳遞給 *vmdkLocations* 屬性。
+
+
+NOTE: 若要將 VMDK 附加到不同的 VM，請在 alternativeVmMoref 屬性中傳遞目標 VM 的 moref。
+
+|===
+
+
+== 要分離 VMDK，請遵循以下工作流程：
+
+|===
+| 步 | REST API | 評論 
+
+
+| 1 | 前往 `\http://<vCenter-IP>/mob` | 從 VMware 管理物件 URL 中尋找 VM moref。請注意您想要分離 VMDK 的 VM 的 *moref*。 
+
+
+| 2 | `/4.1/vm/{moref}/backups` | `Get VM Backups`取得指定 VM 的備份清單。傳遞步驟 1 中的 *moref*。記下您要還原的備份的 *backupId*。 
+
+
+| 3 | `/4.1/vm/{moref}/backups/
+{backupId}/vmdklocations` | `Get VMDK Locations`取得指定 VM 的 VMDK 清單。傳遞步驟 2 中的 *backupId* 和步驟 1 的 *moref*。注意*vmdkLocationsList*資訊。 
+
+
+| 4 | `/4.1/vm/{moref}/detachvmdks` | `Detach VMDKs`分離指定的 VMDK。傳遞步驟 1 中的 *moref*。將步驟 3 中的 VMDK *vmdkLocationsList* 詳細資訊傳遞給 *vmdksToDetach* 屬性。 
+|===

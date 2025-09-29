@@ -1,0 +1,29 @@
+---
+sidebar: sidebar 
+permalink: scpivs44_modify_storage_timeout.html 
+keywords:  
+summary: 即使備份在過去成功運行，SnapCenter Plug-in for VMware vSphere必須等待儲存系統超過配置的逾時期限期間，備份可能會開始失敗。如果發生這種情況，您可以增加配置的逾時時間。 
+---
+= 修改配置的儲存逾時
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+即使備份在過去成功運行，SnapCenter Plug-in for VMware vSphere必須等待儲存系統超過配置的逾時期限期間，備份可能會開始失敗。如果發生這種情況，您可以增加配置的逾時時間。
+
+您可能會遇到錯誤 `Unable to discover resources on SCV: Unable to get storage details for datastore <xxx>…`
+
+.步驟
+. 在 SCV 外掛程式的左側導覽窗格中，選擇 *儲存系統*。
+. 在儲存系統頁面上，選擇要修改的儲存系統，然後選擇*編輯*。
+. 在超時欄位中，增加秒數。
++
+
+TIP: 對於大型環境，建議使用 180 秒。
+
+

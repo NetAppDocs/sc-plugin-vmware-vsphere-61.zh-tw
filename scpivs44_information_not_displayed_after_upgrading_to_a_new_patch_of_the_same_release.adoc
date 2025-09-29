@@ -1,0 +1,61 @@
+---
+sidebar: sidebar 
+permalink: scpivs44_information_not_displayed_after_upgrading_to_a_new_patch_of_the_same_release.html 
+keywords:  
+summary: 將SnapCenter Plug-in for VMware vSphere升級至相同版本的新修補程式後，儀表板和作業監視器中可能不會顯示最近的作業或其他資訊。 
+---
+= 升級到相同版本的新補丁後不顯示訊息
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+將SnapCenter Plug-in for VMware vSphere升級至相同版本的新修補程式後，儀表板和作業監視器中可能不會顯示最近的作業或其他資訊。
+
+如果要升級到相同版本的新修補程序，則必須在升級或註冊之前清除 vCenter Web Server 上的SnapCenter Plug-in for VMware vSphere快取並重新啟動伺服器。
+
+如果未清除插件緩存，則在以下情況下，儀表板和作業監視器中不會顯示最近的作業：
+
+* 使用 vCenter 部署了SnapCenter Plug-in for VMware vSphere，然後升級到相同版本中的修補程式。
+* SnapCenter VMware 虛擬設備部署在 vCenter 1 中。後來，此SnapCenter Plug-in for VMware vSphere被註冊到新的 vCenter2。使用補丁建立了SnapCenter Plug-in for VMware vSphere的新實例，並將其註冊到 vCenter1。但是，由於 vCenter1 仍然具有來自第一個未安裝SnapCenter Plug-in for VMware vSphere的快取插件，因此需要清除快取。
+
+
+根據伺服器作業系統的類型，快取位於以下位置：
+
+* vCenter Server Linux 設備
++
+`/etc/vmware/vsphere-client/vc-packages/vsphere-client-serenity/`
+
+* Windows 作業系統
++
+`%PROGRAMFILES%/VMware/vSphere client/vc-packages/vsphere-client-serenity/`
+
+
+
+
+
+== 如果您在清除快取之前已經升級，請採取以下解決方法
+
+. 登入SnapCenter Plug-in for VMware vSphere管理 GUI。
++
+部署SnapCenter Plug-in for VMware vSphere時會顯示 IP 位址。
+
+. 在左側導覽窗格中選擇“配置”，然後在“插件詳細資料”部分中選擇“服務”選項以停用該插件。
++
+SnapCenter Plug-in for VMware vSphere已停用，且擴充功能已在 vCenter 中取消註冊。
+
+. 找到 `vsphere-client-serenity`資料夾，然後找到 `com.netapp.scv.client-<release-number>`資料夾並將其刪除。
++
+資料夾名稱隨每個版本的發布而變化。
+
+. 重新啟動 vCenter Server。
+. 登入 VMware vSphere 用戶端。
+. 在左側導覽窗格中選擇“配置”，然後在“插件詳細資料”部分中選擇“服務”選項以啟用該插件。
++
+適用SnapCenter Plug-in for VMware vSphere已啟用，且擴充功能已在 vCenter 中註冊。
+
+

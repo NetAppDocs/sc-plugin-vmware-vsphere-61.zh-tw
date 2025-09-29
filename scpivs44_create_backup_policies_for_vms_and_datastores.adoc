@@ -1,0 +1,162 @@
+---
+sidebar: sidebar 
+permalink: scpivs44_create_backup_policies_for_vms_and_datastores.html 
+keywords:  
+summary: 在使用適用於SnapCenter Plug-in for VMware vSphere虛擬機器和資料儲存區之前，必須建立備份原則。 
+---
+= 為虛擬機器和資料儲存建立備份策略
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+在使用適用於SnapCenter Plug-in for VMware vSphere虛擬機器和資料儲存區之前，必須建立備份原則。
+
+.開始之前
+* 您必須已經閱讀了先決條件。
+* 您必須配置輔助儲存關係。
++
+** 如果您要將快照複製到映像或保管庫輔助存儲，則必須配置關係，且SnapCenter管理員必須已為來源磁碟區和目標磁碟區指派儲存虛擬機器。
+** 若要將快照成功傳輸到 NFS 或 VMFS 資料儲存區上 Version-FlexibleMirror 關係的輔助存儲，請確保SnapMirror策略類型為非同步鏡像，並且選取了「all_source_snapshots」選項。
+** 當二級儲存（鏡像保管庫）上的快照數量達到最大限制時，註冊備份和在備份作業中套用保留的活動將會失敗，並出現以下錯誤： `This snapshot is currently used as a reference snapshot by one or more SnapMirror relationships. Deleting the snapshot can cause future SnapMirror operations to fail.`
++
+若要解決此問題，請為二級儲存配置SnapMirror保留策略，以避免達到快照的最大限制。
+
++
+有關管理員如何向使用者指派資源的信息，請參閱 https://docs.netapp.com/us-en/snapcenter/get-started/rbac-snapcenter.html["有關使用基於角色的存取控制的SnapCenter信息"^]。
+
+
+
+* 如果您想要虛擬機器一致的備份，則必須安裝並執行 VMware 工具。需要 VMware 工具來使虛擬機器靜止。  vVol VM 不支援 VM 一致性備份。
+* SnapMirror主動同步使業務服務即使在整個站點發生故障時也能繼續運行，支援應用程式使用輔助副本透明地進行故障轉移。
++
+
+NOTE: SnapMirror主動同步僅支援 VMFS 資料儲存。
+
++
+若要保護SnapMirror主動同步部署上的 VMFS 資料儲存區，身為SnapCenter管理員，您需要：
+
++
+** 按照技術報告中的描述配置叢集和中介： https://docs.netapp.com/us-en/ontap/snapmirror-active-sync/mediator-install-task.html["為SnapMirror主動同步配置ONTAP調解器和集群"] 。
+** 將與 VMFS 資料儲存庫關聯的磁碟區新增至一致性群組，並使用 _AutomatedFailOver_ 或 _AutomatedFailOverDuplex_ 保護策略在兩個ONTAP儲存系統之間建立資料保護關係。從ONTAP 9.15.1 版本開始支援 _AutomatedFailOverDuplex_ 策略。
+
+
+
+
+
+NOTE: 在扇出配置中，第三站點不支援一致性組。
+
+.關於此任務
+這些嚮導頁面上的大多數欄位都是不言自明的。以下資訊描述了您可能需要指導的一些欄位。
+
+.步驟
+. 在 SCV 外掛程式的左側導覽窗格中，選擇 *Policies*。
+. 在「*策略*」頁面上，選擇「*建立*」以啟動精靈。
+. 在*新備份策略*頁面上輸入策略名稱和描述。
++
+** 連結模式
++
+在連結模式下，每個 vCenter 都有一個單獨的虛擬設備。因此，您可以在各個 vCenter 中使用重複的名稱。但是，您必須在與資源組相同的 vCenter 中建立該策略。
+
+** 不支援的字符
++
+請勿在虛擬機器、資料儲存區、叢集、原則、備份或資源群組名稱中使用以下特殊字元：% & * $ # @ ! \ / ： * ？“ < > - | ; ' ，以及空格。
+
++
+允許使用底線字元 (_)。
+
+
+
+. 指定頻率設定。
++
+此策略僅指定備份頻率。備份的具體保護計劃在資源組中定義。因此，兩個或多個資源組可以共享相同的策略和備份頻率，但具有不同的備份計劃。
+
+. 選取*鎖定期*複選框以啟用快照鎖定。您可以選擇主快照和次快照鎖定期限為天/月/年。
++
+
+NOTE: 無論ONTAP SnapMirror政策中設定的保留值為何，在指定的輔助快照鎖定期之前都不會刪除輔助快照副本。
+
+. 指定保留設定。
++
+
+IMPORTANT: 如果您打算啟用SnapVault複製，則應將保留計數設為 2 個備份或更高。如果將保留計數設為 1 個備份，則保留作業可能會失敗。這是因為第一個快照是SnapVault關係的參考快照，直到較新的快照複製到目標。
+
++
+
+NOTE: 最大保留值為 1018 個備份。如果保留設定的值高於底層ONTAP版本支援的值，則備份將會失敗。對於跨資料儲存也是如此。
+
+
+
+. 在「*複製*」欄位中，指定複製到輔助儲存的類型，如下表所示：
++
+|===
+| 對於這個領域… | 這樣做… 
+
+
+| 備份後更新SnapMirror  a| 
+選擇此選項可在與主備份磁碟區具有SnapMirror關係的另一個磁碟區上建立備份集的鏡像副本。如果磁碟區配置了鏡像-保險庫關係，則如果您希望將備份複製到鏡像-保險庫目標，則必須僅選擇 *備份後更新SnapVault * 選項。
+
+
+NOTE: SnapCenter Plug-in for VMware vSphere中的FlexGroup磁碟區中的資料儲存支援此選項。
+
+
+NOTE: 若要保護SnapMirror主動同步部署上的 VMFS 資料儲存區，您需要完成「開始之前」部分中提到的先決條件並啟用*備份後更新SnapMirror *。
+
+
+
+| 備份後更新SnapVault  a| 
+選擇此選項可在與主備份磁碟區具有SnapVault關係的另一個磁碟區上執行磁碟到磁碟的備份複製。
+
+
+IMPORTANT: 如果磁碟區配置了鏡像-保險庫關係，則如果您希望將備份複製到鏡像-保險庫目標，則必須僅選擇此選項。
+
+
+NOTE: SnapCenter Plug-in for VMware vSphere中的FlexGroup磁碟區中的資料儲存支援此選項。
+
+
+
+| 快照標籤  a| 
+輸入可選的自訂標籤，以新增至使用此策略建立的SnapVault和SnapMirror快照。快照標籤有助於區分使用此策略建立的快照與輔助儲存系統上的其他快照。
+
+
+NOTE: 快照標籤最多允許 31 個字元。
+
+|===
+. 選用：在*進階*欄位中，選擇所需的欄位。下表列出了高級欄位的詳細資訊。
++
+|===
+| 對於這個領域… | 這樣做… 
+
+
+| 虛擬機器一致性  a| 
+勾選此方塊可在每次執行備份作業時使虛擬機器靜止並建立 VMware 快照。
+
+vVols不支援此選項。對於 vVol VM，僅執行崩潰一致性備份。
+
+
+IMPORTANT: 您必須在 VM 上執行 VMware 工具才能執行 VM 一致性備份。如果 VMware 工具未執行，則執行崩潰一致性備份。
+
+
+NOTE: 當您選取 VM 一致性方塊時，備份作業可能需要更長時間並需要更多儲存空間。在這種情況下，虛擬機器首先處於靜止狀態，然後 VMware 執行虛擬機器一致快照，然後SnapCenter執行其備份操作，然後還原虛擬機器操作。  VM 用戶機記憶體不包含在 VM 一致性快照中。
+
+
+
+| 包含具有獨立磁碟的資料存儲 | 勾選此方塊可將任何具有獨立磁碟且包含臨時資料的資料儲存空間包含在備份中。 
+
+
+| 腳本  a| 
+輸入您希望SnapCenter Plug-in for VMware vSphere在備份作業之前或之後執行的前置腳本或後置腳本的完全限定路徑。例如，您可以執行腳本來更新 SNMP 陷阱、自動發出警報和傳送日誌。腳本路徑在執行腳本時進行驗證。
+
+
+NOTE: 前言和後記必須位於虛擬設備 VM 上。若要輸入多個腳本，請在每個腳本路徑後按下 *Enter* 鍵，將每個腳本列在單獨的行上。不允許使用字元“；”。
+
+|===
+. 選擇“新增”。
++
+您可以透過在「策略」頁面中選擇策略來驗證策略是否已建立並查看策略配置。
+
+

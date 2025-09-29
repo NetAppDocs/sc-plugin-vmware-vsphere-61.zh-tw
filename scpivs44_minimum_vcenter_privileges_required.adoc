@@ -1,0 +1,66 @@
+---
+sidebar: sidebar 
+permalink: scpivs44_minimum_vcenter_privileges_required.html 
+keywords:  
+summary: 在開始部署SnapCenter Plug-in for VMware vSphere之前，您應該確保您擁有所需的最低 vCenter 權限。 
+---
+= 所需的最低 vCenter 權限
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+在開始部署SnapCenter Plug-in for VMware vSphere之前，您應該確保您擁有所需的最低 vCenter 權限。
+
+
+
+== vCenter 管理員角色所需的權限
+
+資料儲存.分配空間 資料儲存.瀏覽 資料儲存.刪除 資料儲存.檔案管理 資料儲存.移動 資料儲存.重新命名 擴充功能.註冊 擴充功能.取消註冊 擴充功能.更新 主機.設定.進階設定 主機.設定.資源 主機.設定.設定 主機.設定.儲存 主機.本機.建立虛擬主機 主機.設定.資源 主機.設定.設定 主機.設定.儲存 主機.本機。 資源.冷遷移 資源.熱遷移 資源.查詢VMotion 系統.匿名 系統.讀取 系統.查看 任務.創建 任務.更新 虛擬機.配置.添加現有磁盤 虛擬機.配置.添加新磁盤 虛擬機.配置.高級配置 虛擬機.配置.從路徑重新加載 虛擬機.配置.刪除磁盤 虛擬機.配置.資源 虛擬機.GuestOperations.執行虛擬機器.GuestOperations.修改虛擬機器.GuestOperations.查詢虛擬機器.互動.關機虛擬機器.互動.開機虛擬機器.庫存.建立虛擬機器.庫存.從現有建立虛擬機器.庫存.刪除虛擬機器.庫存.移動虛擬機器.庫存.註冊虛擬機器.庫存.
+
+
+
+== 特定於 VMware vCenter 的SnapCenter插件所需的權限
+
+|===
+
+
+| *Privileges* | *標籤* 
+
+
+| netappSCV.Guest.恢復文件 | 訪客文件恢復 
+
+
+| netappSCV.Recovery.MountUnMount | 掛載/卸載 
+
+
+| netappSCV.備份.刪除備份作業 | 刪除資源組/備份 
+
+
+| netappSCV.配置.配置儲存系統.刪除 | 刪除儲存系統 
+
+
+| netappSCV.查看 | 看法 
+
+
+| netappSCV.Recovery.恢復虛擬機 | 復原虛擬機 
+
+
+| netappSCV.配置.配置儲存系統.新增更新 | 新增/修改儲存系統 
+
+
+| netappSCV.備份.立即備份 | 立即備份 
+
+
+| netappSCV.Guest.配置 | 來賓配置 
+
+
+| netappSCV.設定.配置SnapCenterServer | 配置SnapCenter伺服器 
+
+
+| netappSCV.Backup.BackupScheduled | 建立資源組 
+|===

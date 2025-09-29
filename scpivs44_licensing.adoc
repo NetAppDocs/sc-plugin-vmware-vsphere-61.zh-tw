@@ -1,0 +1,24 @@
+---
+sidebar: sidebar 
+permalink: scpivs44_licensing.html 
+keywords:  
+summary: 本節提供適用於SnapCenter Plug-in for VMware vSphere的授權資訊。 
+---
+= 授權
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+如果您使用下列儲存系統，SnapCenter Plug-in for VMware vSphere是免費產品：
+
+* 本地ONTAP叢集（FAS、 AFF和ASA系統）
+* Cloud Volumes ONTAP
+* ONTAP Select
+
+
+建議（但不要求）將SnapCenter標準許可證新增至輔助目標。如果輔助系統上未啟用SnapCenter標準許可證，則執行故障轉移操作後無法使用SnapCenter 。但是，執行掛載和連接操作需要二級儲存上的FlexClone許可證。執行復原作業需要SnapRestore授權。

@@ -1,0 +1,48 @@
+---
+sidebar: sidebar 
+permalink: scpivs48_rest_apis_audit_logs.html 
+keywords:  
+summary: 用於產生稽核日誌的 REST API 
+---
+= 用於產生稽核日誌的 REST API
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+您可以從 swagger rest API 以及 SCV 插件使用者介面收集審計日誌詳細資訊。
+
+下面給出了 Swagger Rest API：
+
+. GET 4.1/audit/logs：取得所有日誌的稽核數據
+. GET 4.1/audit/logs/{filename}：取得特定日誌檔案的稽核數據
+. POST 4.1/audit/verify：觸發稽核日誌驗證。
+. GET 4.1/audit/config：取得稽核與系統日誌伺服器配置
+. PUT 4.1/audit/config：更新稽核和系統日誌伺服器配置
+
+
+若要使用適用於 VMware vSphere REST API的 SnapCenter Plug-in for VMware vSphere用戶端作業產生稽核日誌，您必須使用適用於 VMware vSphere 的 REST API 呼叫。
+
+對於每個 REST API，新增 `\https://<server>:<port>/api`在 REST API 的前面形成一個完整的端點。
+
+使用「作業」部分中的以下 REST API 來取得有關作業的詳細資訊：
+
+|===
+| REST API | 評論 
+
+
+| `4.1/audit/logs` | 傳回包含完整性資料的稽核日誌文件 
+
+
+| `4.1/audit/logs/{filename}` | 取得具有完整性資料的特定稽核日誌文件 
+
+
+| `4.1/audit/verify` | 觸發審計驗證 
+
+
+| `4.1/audit/syslogcert` | 更新 syslog 伺服器證書 
+|===

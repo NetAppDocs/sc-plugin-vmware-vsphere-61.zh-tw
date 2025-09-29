@@ -1,0 +1,51 @@
+---
+sidebar: sidebar 
+permalink: scpivs44_restart_the_vmware_vsphere_web_client_service.html 
+keywords:  
+summary: 如果SnapCenter VMware vSphere 用戶端開始出現異常，您可能需要清除瀏覽器快取。如果問題仍然存在，請重新啟動 Web 用戶端服務。 
+---
+= 重新啟動 VMware vSphere 用戶端服務
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+如果SnapCenter VMware vSphere 用戶端開始出現異常，您可能需要清除瀏覽器快取。如果問題仍然存在，請重新啟動 Web 用戶端服務。
+
+
+
+== 在 Linux vCenter 中重新啟動 VMware vSphere 用戶端服務
+
+.開始之前
+您必須執行 vCenter 7.0U1 或更高版本。
+
+.步驟
+. 使用 SSH 以 root 身分登入 vCenter Server Appliance。
+. 使用以下命令存取 Appliance Shell 或 BASH Shell：
++
+`shell`
+
+. 使用下列 HTML5 指令停止 Web 用戶端服務：
++
+`service-control --stop vsphere-ui`
+
+. 使用以下 shell 指令刪除 vCenter 上所有過時的 HTML5 scvm 套件：
++
+`etc/vmware/vsphere-ui/vc-packages/vsphere-client-serenity/`
+
++
+`rm -rf com.netapp.scv.client-<version_number>`
+
++
+
+IMPORTANT: 請勿刪除 VASA 或 vCenter 7.x 及更高版本的軟體包。
+
+. 使用下列 HTML5 命令啟動 Web 用戶端服務：
++
+`service-control --start vsphere-ui`
+
+

@@ -1,0 +1,42 @@
+---
+indexpage:
+  title: SnapCenter Plug-in for VMware vSphere文檔
+  summary: SnapCenter Plug-in for VMware vSphere是基於 Linux 的虛擬設備。作為獨立產品，它為虛擬機器、資料儲存和
+    VMDK 提供快速、節省空間、崩潰一致和虛擬機器一致的備份和復原作業。它還與SnapCenter Server 配合使用，支援 VMware 環境中針對SnapCenter應用程式特定插件的基於應用程式的備份和復原作業。
+  keywords: SnapCenter Plug-in for VMware vSphere, SCV
+  lead: SnapCenter Plug-in for VMware vSphere是基於 Linux 的虛擬設備。作為獨立產品，它為虛擬機器、資料儲存和 VMDK
+    提供快速、節省空間、崩潰一致和虛擬機器一致的備份和復原作業。它還與SnapCenter Server 配合使用，支援 VMware 環境中針對SnapCenter應用程式特定插件的基於應用程式的備份和復原作業。此文件庫介紹了SnapCenter
+    Plug-in for VMware vSphere。
+  tiles:
+  - title: 開始
+    links:
+    - title: 發行說明
+      url: https://library.netapp.com/ecm/ecm_download_file/ECMLP3337464
+    - title: 了解 SCV
+      url: "/scpivs44_concepts_overview.html"
+    - title: 部署要求
+      url: "/scpivs44_deployment_planning_and_requirements.html"
+    - title: 快速啟動
+      url: "/scpivs44_quick_start_overview.html"
+  - title: 保護虛擬機器、VMDK 和資料儲存區
+    links:
+    - title: 保護您的數據
+      url: "/scpivs44_protect_data_overview.html"
+    - title: 恢復備份
+      url: "/scpivs44_restore_from_backups_overview.html"
+    - title: 使用 REST API
+      url: "/scpivs44_rest_apis_overview.html"
+  - title: 部落格和社區
+    links:
+    - title: NetApp部落格 – SCV
+      url: https://blog.netapp.com/tag/snapcenter/
+    - title: NetApp社區 – SCV
+      url: https://community.netapp.com/t5/forums/filteredbylabelpage/board-id/backup-and-restore-discussions/label-name/snapcenter
+  - title: 更多資源
+    links:
+    - title: SnapCenter軟體文檔
+      url: https://docs.netapp.com/us-en/snapcenter/index.html
+    - title: SCV 早期版本的文檔
+      url: https://mysupport.netapp.com/documentation/productlibrary/index.html?productID=63240
+    - title: NetApp知識庫 – SCV
+      url: https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/SnapCenter

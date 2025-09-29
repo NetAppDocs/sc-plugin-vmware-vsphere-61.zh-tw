@@ -1,0 +1,80 @@
+---
+sidebar: sidebar 
+permalink: scpivs44_restore_deleted_vms_from_backups.html 
+keywords:  
+summary: 您可以將已刪除的虛擬機器從資料儲存主備份或輔助備份還原到您選擇的 ESXi 主機。 
+---
+= 從備份中還原已刪除的虛擬機
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+您可以將已刪除的虛擬機器從資料儲存主備份或輔助備份還原到您選擇的 ESXi 主機。
+
+您可以將虛擬機器還原到以下位置：
+
+* 恢復到原始位置
++
+** 到原始 ESXi 主機上安裝的原始資料儲存（這將複製虛擬機器）
+
+
+* 恢復至備用位置
++
+** 到原始 ESXi 主機上掛載的其他資料存儲
+** 到由同一 vCenter 管理的不同 ESXi 主機上掛載的原始資料儲存區
+** 到由同一 vCenter 管理的不同 ESXi 主機上掛載的不同資料儲存區
+** 到由連結模式下的不同 vCenter 管理的不同 ESXi 主機上掛載的不同資料儲存區
+
+
+
+
+
+NOTE: 還原到其他位置時，SnapCenter Plug-in for VMware vSphere必須在作為還原作業目標的連結 vCenter 中執行。目標資料儲存必須具有足夠的空間。
+
+
+NOTE: 您無法將 vVol VM 還原到備用位置。
+
+
+NOTE: 當恢復已刪除的虛擬機器時，不會恢復最初指派給該虛擬機器的任何標籤或資料夾。
+
+.開始之前
+* VMware vSphere 用戶端的「儲存系統」頁面上的儲存系統使用者帳戶必須具有link:scpivs44_minimum_ontap_privileges_required.html["ONTAP所需的最低ONTAP權限"]。
+* vCenter 中的使用者帳戶必須具有link:scpivs44_minimum_vcenter_privileges_required.html["SnapCenter Plug-in for VMware vSphere所需的最低 vCenter 權限"]。
+* 必須存在備份。
++
+您必須先使用適用於SnapCenter Plug-in for VMware vSphere建立虛擬機器的備份，然後才能還原該虛擬機器上的 VMDK。
+
+
+
+
+TIP: 為了提高 NFS 環境中復原作業的效能，請啟用 VMware 應用程式 vStorage API for Array Integration (VAAI)。
+
+.關於此任務
+您無法恢復資料存儲，但可以還原資料儲存中的任何虛擬機器。
+
+如果虛擬機器所在的FabricPool的儲存層不可用，則復原操作可能會失敗。
+
+.步驟
+. 在 vCenter Server 中，導覽至 *Inventory* > *Datastores* 並選擇資料儲存。
+. 在SnapCenter Plug-in for VMware vSphere中選擇 *設定* > *備份*。
+. 雙擊備份即可查看備份中包含的所有虛擬機器的清單。
+. 從備份清單中選擇已刪除的虛擬機，然後選擇*還原*。
+. 在*還原*精靈的*選擇備份*頁面上，選擇要從中還原的備份副本。
++
+您可以搜尋特定的備份名稱或部分備份名稱，也可以透過選擇篩選器圖示並選擇日期和時間範圍來過濾備份列表，選擇是否需要包含 VMware 快照的備份、是否需要已掛載的備份以及位置。選擇“*確定*”返回精靈。
+
+. 在*選擇範圍*頁面上，在*復原範圍*欄位中選擇*整個虛擬機器*，然後選擇復原位置，然後輸入應掛載備份的目標 ESXi 主機資訊。
++
+還原目標可以是已新增至SnapCenter的任何 ESXi 主機。此選項可從具有指定時間和日期的快照中還原 VM 所在的選定備份的內容。如果選擇此選項，則會選取「*重新啟動 VM*」複選框，並且 VM 將啟動。
+
++
+如果您將 NFS 資料儲存中的 VM 還原到 ESXi 叢集中的備用 ESXi 主機上，則 VM 還原後，它將在備用主機上註冊。
+
+. 在「選擇位置」頁面上，選擇要從中還原的備份的位置（主位置或輔助位置）。
+. 查看摘要頁面，然後選擇*完成*。
+

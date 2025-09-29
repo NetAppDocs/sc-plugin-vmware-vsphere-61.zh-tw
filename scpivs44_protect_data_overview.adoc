@@ -1,0 +1,33 @@
+---
+sidebar: sidebar 
+permalink: scpivs44_protect_data_overview.html 
+keywords:  
+summary: 所有備份作業都在資源組上執行，資源組可以包含一個或多個虛擬機器和資料儲存區的任意組合。您可以根據需要或根據定義的保護計劃進行備份。 
+---
+= 資料保護工作流程
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+使用SnapCenter vSphere 用戶端對虛擬機器、VMDK 和資料儲存執行資料保護作業。所有備份作業都在資源組上執行，資源組可以包含一個或多個虛擬機器和資料儲存區的任意組合。您可以根據需要或根據定義的保護計劃進行備份。
+
+當您備份資料儲存區時，您正在備份該資料儲存區中的所有虛擬機器。
+
+不能對相同資源組同時執行備份和復原作業。
+
+您應該查看有關SnapCenter Plug-in for VMware vSphere支援和不支援的功能的資訊。link:scpivs44_deployment_planning_and_requirements.html["部署規劃和要求"]
+
+在MetroCluster配置中：
+
+* SnapCenter Plug-in for VMware vSphere可能無法在故障轉移後偵測到保護關係。參考 https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/SnapCenter/Unable_to_detect_SnapMirror_or_SnapVault_relationship_after_MetroCluster_failover["知識庫文章： MetroCluster故障轉移後無法偵測SnapMirror或SnapVault關係"^]了解更多。
+* 如果備份失敗並出現錯誤 `Unable to discover resources on SCV: <xxx>…`對於切換/切換回後的 NFS 和 VMFS VM，從維護控制台重新啟動SnapCenter VMware 服務。
+
+
+下圖顯示了您必須執行備份作業的順序：
+
+image:scpivs44_image13.png["備份作業工作流程"]

@@ -1,0 +1,28 @@
+---
+sidebar: sidebar 
+permalink: scpivs44_rest_apis_fail_stuck_jobs.html 
+keywords:  
+summary: 若要使用適用SnapCenter Plug-in for VMware vSphere用戶端作業的作業 ID，您必須使用適用於 VMware vSphere 的 REST API 呼叫。 
+---
+= REST API 將卡住的作業標記為失敗
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+若要使用適用SnapCenter Plug-in for VMware vSphere用戶端作業的作業 ID，您必須使用適用於 VMware vSphere 的 REST API 呼叫。這些 REST API 已新增至SnapCenter Plug-in for VMware vSphere。
+
+對於每個 REST API，在 REST API 前面新增 \https://<server>:<port>` 以形成完整的端點。
+
+使用「作業」部分中的下列 REST API 將停留在運作狀態的作業變更為失敗狀態：
+
+|===
+| REST API | 評論 
+
+
+| `/4.1/jobs/{id}/failJobs` | 當你傳遞處於運作狀態的作業的 ID 時， `failJobs`將這些作業標記為失敗。若要識別處於運作狀態的作業，請使用作業監視器 GUI 查看每個作業的狀態和作業 ID。 
+|===

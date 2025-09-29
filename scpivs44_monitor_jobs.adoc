@@ -1,0 +1,31 @@
+---
+sidebar: sidebar 
+permalink: scpivs44_monitor_jobs.html 
+keywords:  
+summary: 使用 VMware vSphere 用戶端執行任何資料保護作業後，您可以從儀表板中的「作業監視器」標籤監視作業狀態並查看作業詳細資料。 
+---
+= 監控作業
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+使用 VMware vSphere 用戶端執行任何資料保護作業後，您可以從儀表板中的「作業監視器」標籤監視作業狀態並查看作業詳細資料。
+
+.步驟
+. 從 vCenter 用戶端捷徑頁面中，選擇SnapCenter Plug-in for VMware vSphere。
+. 在 SCV 的左側導覽窗格中，選擇 *儀表板*。
+. 當兩個或多個 vCenter 配置為連結模式時，選擇 SCV 插件實例並選擇 *Job Monitor* 標籤。作業監視器標籤列出了每個作業及其狀態、開始時間和結束時間。如果作業名稱很長，您可能需要向右捲動才能查看開始和結束時間。顯示每 30 秒刷新一次。
++
+** 選擇工具列中的刷新圖示可按需刷新顯示。
+** 選擇篩選器圖示來選擇您想要顯示的作業的時間範圍、類型、標籤和狀態。過濾器區分大小寫。
+** 選擇「作業詳細資料」視窗中的重新整理圖示可在作業執行時重新整理顯示。
+
+
+
+
+如果儀表板未顯示作業訊息，請參閱 https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/SnapCenter/SnapCenter_vSphere_web_client_dashboard_does_not_display_jobs["知識庫文章： SnapCenter vSphere 用戶端儀表板不顯示作業"^]。

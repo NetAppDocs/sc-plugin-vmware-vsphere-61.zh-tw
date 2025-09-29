@@ -1,0 +1,36 @@
+---
+sidebar: sidebar 
+permalink: scpivs44_rest_api_workflows__modify_built-in_schedules.html 
+keywords:  
+summary: 若要使用適用SnapCenter Plug-in for VMware vSphere修改 VMware vSphere 用戶端作業的內建計劃，必須遵循規定的 REST API 呼叫順序。 
+---
+= 用於修改內建排程的 REST API 工作流程
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+若要使用適用SnapCenter Plug-in for VMware vSphere修改 VMware vSphere 用戶端作業的內建計劃，必須遵循規定的 REST API 呼叫順序。
+
+內建計劃是作為產品的一部分提供的計劃；例如，MySQL 資料庫轉儲計劃。您可以修改以下計劃：
+`Schedule-DatabaseDump`
+`Schedule-PurgeBackups`
+`Schedule-AsupDataCollection`
+`Schedule-ComputeStorageSaving`
+`Schedule-PurgeJobs`
+
+對於每個 REST API，新增 `\https://<server>:<port>`在 REST API 的前面形成一個完整的端點。
+
+|===
+| 步 | REST API | 評論 
+
+
+| 1 | `/4.1/schedules` | `Get all built-in`schedules 取得產品中原先提供的作業計畫清單。記下您要修改的計劃名稱和相關的 cron 表達式。 
+
+
+| 2 | `/4.1/schedules` | `Modify any built-in schedule`更改命名的時間表。傳遞步驟 1 中的計劃名稱並為該計劃建立一個新的 cron 表達式。 
+|===

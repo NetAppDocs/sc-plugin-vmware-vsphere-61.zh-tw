@@ -1,0 +1,83 @@
+---
+sidebar: sidebar 
+permalink: scpivs44_deploy_snapcenter_plug-in_for_vmware_vsphere_01.html 
+keywords:  
+summary:  
+---
+= SnapCenter Plug-in for VMware vSphere
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+若要使用SnapCenter功能保護虛擬機器上的虛擬機器、資料儲存區和應用程式一致的資料庫，您必須部署SnapCenter Plug-in for VMware vSphere。這link:scpivs44_download_the_ova_open_virtual_appliance.html["下載開放虛擬設備 (OVA)"^]頁面提供了下載 OVA 檔案的說明。
+
+. 對於 VMware vCenter 7.0.3 及更高版本，請依照link:scpivs44_download_the_ova_open_virtual_appliance.html["下載開放虛擬設備 (OVA)"^]將憑證匯入 vCenter。
+. 在瀏覽器中，導覽至 VMware vSphere vCenter。
++
+
+NOTE: 對於 IPv6 位址 HTML Web 用戶端，您必須使用 Chrome 或 Firefox。
+
+. 登入*VMware vCenter Single Sign-On 頁面*。
+. 在導覽窗格上，右鍵按一下任何作為虛擬機器有效父物件的清單物件（例如資料中心、資料夾、叢集或主機），然後選擇*部署 OVF 範本*以啟動 VMware 部署精靈。
+. 在「選擇 OVF 範本」頁面上，指定 `.ova`文件（如下表所列）並選擇*下一步*。
++
+|===
+| 在此嚮導頁面上... | 這樣做… 
+
+
+| 選擇名稱和資料夾 | 輸入 VM 或 vApp 的唯一名稱並選擇部署位置。 
+
+
+| 選擇資源 | 選擇要執行已部署的 VM 範本的資源。 
+
+
+| 查看詳細信息 | 驗證 `.ova`模板詳細資訊。 
+
+
+| 授權協議 | 選中*我接受所有許可協議*複選框。 
+
+
+| 選擇儲存 | 定義已部署 OVF 範本的檔案的儲存位置和儲存方式。 
+
+
+| 選擇網路 | 選擇來源網路並將其對應到目標網路。 
+
+
+| 自訂模板  a| 
+在*註冊到現有 vCenter* 中，輸入 vCenter 憑證。在「建立SnapCenter Plug-in for VMware vSphere憑證」*中，輸入SnapCenter Plug-in for VMware vSphere。
+
+
+NOTE: 記下您指定的使用者名稱和密碼。如果您以後想要修改適用於 VMware vSphere 的SnapCenter外掛程式配置，則需要使用這些憑證。
+
+在*設定網路屬性*部分，輸入網路資訊。在「設定日期和時間」部分中，選擇 vCenter 所在的時區。
+
+
+
+| 準備完成 | 查看頁面並選擇*完成*。 
+|===
++
+
+NOTE: 所有主機都必須配置 IP 位址（不支援 FQDN 主機名稱）。部署操作在部署之前不會驗證您的輸入。
+
+. 導覽至部署了適用於SnapCenter Plug-in for VMware vSphere的虛擬機，然後選擇「*摘要*」選項卡，然後選擇「*啟動*」框以啟動SnapCenter Plug-in for VMware vSphere。
+. 在SnapCenter Plug-in for VMware vSphere啟動時，右鍵單擊已部署的SnapCenter Plug-in for VMware vSphere，選擇“*Guest OS*”，然後選擇“*Install VMware tools*”。
++
+部署可能需要幾分鐘才能完成。當適用SnapCenter Plug-in for VMware vSphere開啟、安裝了 VMware 工具並且螢幕提示您登入SnapCenter Plug-in for VMware vSphere，表示部署成功。
+
++
+螢幕顯示部署SnapCenter Plug-in for VMware vSphere的IP 位址。記下 IP 位址。如果要變更適用於SnapCenter Plug-in for VMware vSphereSnapCenter Plug-in for VMware vSphere管理 GUI。
+
+. 使用部署畫面上顯示的 IP 位址和部署精靈中提供的憑證登入SnapCenter Plug-in for VMware vSphere管理 GUI，然後在儀表板上驗證適用SnapCenter Plug-in for VMware vSphere是否已成功連線至 vCenter 並已啟用。
++
+使用格式 `\https://<appliance-IP-address>:8080`存取管理 GUI。
+
++
+使用部署時設定的管理員使用者名稱和密碼以及使用維護控制台產生的 MFA 令牌登入。
+
+. 登入 vCenter HTML5 用戶端，然後在工具列中選擇“選單”，然後選擇“SnapCenter Plug-in for VMware vSphere”
+

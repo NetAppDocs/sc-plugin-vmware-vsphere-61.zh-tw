@@ -1,0 +1,62 @@
+---
+sidebar: sidebar 
+permalink: scpivs44_manage_backups.html 
+keywords:  
+summary: 您可以重新命名並刪除SnapCenter Plug-in for VMware vSphere執行的備份。您也可以同時刪除多個備份。 
+---
+= 管理備份
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+您可以重新命名並刪除SnapCenter Plug-in for VMware vSphere執行的備份。您也可以同時刪除多個備份。
+
+
+
+== 重新命名備份
+
+如果您想提供更好的名稱以提高可搜尋性，可以重新命名SnapCenter Plug-in for VMware vSphere。
+
+
+NOTE: ASA r2 儲存系統不支援重命名備份。
+
+.步驟
+. 選擇*選單*並選擇*主機和叢集*選單選項，然後選擇一個虛擬機，然後選擇*配置*選項卡，然後在*SnapCenter Plug-in for VMware vSphere*部分中選擇*備份*。
++
+image:scv50_image1.png["vSphere 用戶端螢幕"]
+
+. 在「配置」標籤上，選擇一個備份，然後選擇「*重新命名*」。
+. 在*重新命名備份*對話方塊中，輸入新名稱，然後選擇*確定*。
++
+請勿在虛擬機器、資料儲存區、政策、備份或資源群組名稱中使用以下特殊字元：& * $ # @ ! \ / ： * ？“ < > - | ; ' ，以及空格。允許使用底線字元 (_)。
+
+
+
+
+
+== 刪除備份
+
+如果您不再需要備份來進行其他資料保護操作，則可以刪除SnapCenter Plug-in for VMware vSphere。您可以刪除一個備份，也可以同時刪除多個備份。
+
+.開始之前
+您無法刪除已安裝的備份。您必須先卸載備份，然後才能刪除它。
+
+.關於此任務
+二級儲存上的快照由ONTAP保留設定管理，而不是由SnapCenter Plug-in for VMware vSphere管理。因此，當您使用SnapCenter Plug-in for VMware vSphere刪除備份時，主儲存體上的快照會被刪除，但輔助儲存體上的快照不會被刪除。如果快照仍然存在於二級儲存上，SnapCenter Plug-in for VMware vSphere會保留與備份相關的元資料以支援復原請求。當ONTAP保留程序刪除輔助快照時，適用SnapCenter Plug-in for VMware vSphere使用定期執行的清除作業刪除元資料。
+
+. 選擇*選單*並選擇*主機和叢集*選單選項，然後選擇一個虛擬機，然後選擇*配置*選項卡，然後在*SnapCenter Plug-in for VMware vSphere*部分中選擇*備份*。
++
+image:scv50_image1.png["vSphere 用戶端視窗"]
+
+. 選擇一個或多個備份並選擇*刪除*。
++
+您最多可以選擇刪除 40 個備份。
+
+. 選擇“*確定*”確認刪除操作。
+. 透過選擇左側 vSphere 功能表列上的刷新圖示來刷新備份清單。
+

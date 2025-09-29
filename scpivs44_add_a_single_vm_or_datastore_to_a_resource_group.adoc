@@ -1,0 +1,35 @@
+---
+sidebar: sidebar 
+permalink: scpivs44_add_a_single_vm_or_datastore_to_a_resource_group.html 
+keywords:  
+summary: 您可以快速將單一虛擬機器或資料儲存區新增至由SnapCenter Plug-in for VMware vSphere管理的任何現有資源群組。 
+---
+= 將單一虛擬機器或資料儲存新增至資源組
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+您可以快速將單一虛擬機器或資料儲存區新增至由SnapCenter Plug-in for VMware vSphere管理的任何現有資源群組。
+
+.關於此任務
+您可以新增 SAN 和 NAS 資料存儲，但不能新增 VSAN 或 VVOL 資料儲存。
+
+.步驟
+. 在 vSphere 用戶端 GUI 中，選擇工具列中的 *功能表*，然後導覽至要新增的 VM 或資料儲存體。
+. 在左側導覽窗格中，右鍵單擊虛擬機器或資料SnapCenter Plug-in for VMware vSphere* > *新增至資源組*。
++
+系統首先檢查SnapCenter是否管理所選 VM 所在的儲存系統並與之相容，然後顯示「新增至資源組」頁面。如果訊息 `SnapCenter Compatibility Error`顯示，則所選 VM 與SnapCenter不相容，您必須先將適當的儲存 VM 新增至SnapCenter。
+
+. 在「新增至資源組」頁面中，選擇一個資源組，然後選擇「確定」。
++
+當您選擇「*確定*」時，系統會先檢查SnapCenter是否管理所選虛擬機器或資料儲存所在的儲存空間並與其相容。
+
++
+如果訊息 `Selected <resource-name> is not SnapCenter compatible`則表示所選的虛擬機器或資料儲存與SnapCenter不相容。請參閱link:scpivs44_create_resource_groups_for_vms_and_datastores.html#manage-compatibility-check-failures["管理相容性檢查失敗"]了解更多。
+
+

@@ -1,0 +1,86 @@
+---
+sidebar: sidebar 
+permalink: scpivs44_minimum_ontap_privileges_required.html 
+keywords:  
+summary: 所需的最低ONTAP權限會根據您用於資料保護的SnapCenter插件而有所不同。 
+---
+= 需要ONTAP權限
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+所需的最低ONTAP權限會根據您用於資料保護的SnapCenter插件而有所不同。
+
+
+NOTE: 從適用於 VMware (SCV) 5.0 的SnapCenter外掛程式開始，您需要為任何具有自訂基於角色的 SCV 存取權的ONTAP使用者新增 HTTP 和 ONTAPI 類型的應用程式作為使用者登入方法。如果無法存取這些應用程序，備份將會失敗。您需要重新啟動 SCV 服務才能識別ONTAP使用者登入方法的變更。
+
+
+
+== 所需的最低ONTAP權限
+
+所有SnapCenter插件都需要以下最低權限。
+
+|===
+
+
+| 所有存取命令：最低ONTAP權限。 
+
+
+| 事件產生自動支援日誌 
+
+
+| 作業歷史記錄顯示作業顯示作業停止 
+
+
+| lun lun 創建 lun 刪除 lun igroup 添加 lun igroup 創建 lun igroup 刪除 lun igroup 重命名 lun igroup 顯示 lun 映射 添加報告節點 lun 映射 創建 lun 映射 刪除 lun 映射 刪除報告節點 lun 映射 顯示 lun 修改 lun 移入卷 lun 脫機 lun 聯機 lun 持久預留 清除 lun 調整 lun 大小 串行 lun 顯示 
+
+
+| snapmirror 清單目標 snapmirror 政策新增規則 snapmirror 政策修改規則 snapmirror 策略刪除規則 snapmirror 策略顯示 snapmirror 恢復 snapmirror 顯示 snapmirror 顯示歷史記錄 snaproror snapmir-updates 
+
+
+| 版本 
+
+
+| 磁碟區複製 建立磁碟區複製 顯示磁碟區複製分割 啟動磁碟區複製分割狀態 磁碟區分割 停止磁碟區 建立磁碟區 刪除磁碟區 銷毀磁碟區 檔案複製 建立磁碟區檔案 顯示磁碟使用情況 磁碟區 磁碟機 磁碟機磁碟機磁碟機 修改磁碟區 qtree 建立磁碟區 qtree 刪除磁碟區 qtree 修改磁碟區 qtree 顯示器磁碟機快照修正快照 修正紙 修正顯示磁碟區快照 顯示增量磁碟區 卸載 
+
+
+| vserver cifs vserver cifs 共用 建立 vserver cifs 共用 刪除 vserver cifs 磁碟區複製 顯示 vserver cifs 共用 顯示 vserver cifs 顯示 vserver 匯出策略 vserver 匯出策略 建立 vserver 匯出原則 刪除 vserver 匯出政策規則 建立 vserver 程式規則規則 匯出原則 建立 vserver 匯出原則 刪除 vserver 匯出原則規則 建立 vserver server nserver 配置規則 匯出策略 建立 vserver 匯出策略 刪除 vserver 匯出原則規則 建立 vserver server nserver 配置規則 匯出政策 建立 vserver 匯出原則 刪除 vserver 匯出原則規則 建立 vserver server 規則規則 匯出原則 程式設定原則 輸出策略 nvmcserver vserver nserver 11111515s Lservercserver servercserver servercserver 11111 月 v. nvme 子系統控制器 顯示 vserver nvme 子系統 創建 vserver nvme 子系統 刪除 vserver nvme 子系統主機 vserver nvme 子系統主機 顯示 vserver nvme 子系統主機 添加 vserver nvme 子系統主機 刪除 vserver nvme 子系統映射 vserver nvme 子系統映射 顯示 vserver nvme 子系統映射 添加 vserver nvme 子系統映射 刪除 vserver nvme 子系統 修改 vserver nvme 子系統 顯示vserver nvme 命名空間 建立 vserver nvme 命名空間 刪除 vserver nvme 命名空間 修改 vserver nvme 命名空間顯示網路介面 網路介面故障轉移群組 
+|===
+|===
+| 唯讀指令：最低ONTAPPrivileges 
+
+
+| 叢集身分顯示網路介面顯示虛擬伺服器虛擬伺服器對等虛擬伺服器顯示 
+|===
+|===
+| 全訪問指令：最低ONTAP權限 
+
+
+| 一致性組儲存單元顯示 
+|===
+建立與資料 vServer 關聯的角色時，可以忽略 _cluster identity show_ cluster level 指令。
+
+
+NOTE: 您可以忽略有關不支援的 vServer 命令的警告訊息。
+
+
+
+== 更多ONTAP信息
+
+* 您需要ONTAP 9.12.1 或更高版本才能使用SnapMirror主動同步功能。
+* 若要使用防篡改快照 (TPS) 功能：
++
+** 您需要ONTAP 9.13.1 及更高版本才能使用 SAN
+** 您需要ONTAP 9.12.1 及更高版本才能使用 NFS
+
+
+* 對於 NVMe over TCP 和 NVMe over FC 協議，您需要ONTAP 9.10.1 及更高版本。
+
+
+
+NOTE: 從ONTAP版本 9.11.1 開始，與ONTAP叢集的通訊是透過 REST API 進行的。ONTAP使用者應該啟用 http 應用程式。但是，如果發現ONTAP REST API 有問題，設定鍵「FORCE_ZAPI」有助於切換到傳統的 ZAPI 工作流程。您可能需要使用配置 APIS 新增或更新此金鑰並將其設為 true。請參閱知識庫文章， https://kb.netapp.com/mgmt/SnapCenter/How_to_use_RestAPI_to_edit_configuration_parameters_in_SCV["如何使用 RestAPI 編輯 SCV 中的設定參數"]了解更多。

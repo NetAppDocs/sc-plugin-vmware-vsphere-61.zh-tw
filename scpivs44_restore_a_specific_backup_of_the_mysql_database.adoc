@@ -1,0 +1,33 @@
+---
+sidebar: sidebar 
+permalink: scpivs44_restore_a_specific_backup_of_the_mysql_database.html 
+keywords:  
+summary: 您可以使用維護控制台SnapCenter Plug-in for VMware vSphereMySQL 資料庫（也稱為 NSM 資料庫）的特定備份。 
+---
+= 還原 MySQL 資料庫的特定備份
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+您可以使用維護控制台SnapCenter Plug-in for VMware vSphereMySQL 資料庫（也稱為 NSM 資料庫）的特定備份。
+
+.步驟
+. 開啟維護控制台視窗。
++
+link:scpivs44_access_the_maintenance_console.html["存取維護控制台"^] 。
+
+. 從主選單中，輸入選項*1)應用程式配置*。
+. 從應用程式設定選單中，輸入選項*6) MySQL 備份和還原*。
+. 從 MySQL 備份和還原設定選單中，輸入選項 *2) 列出 MySQL 備份*，然後記下要還原的備份。
+. 從 MySQL 備份和還原設定選單中，輸入選項 *4) 還原 MySQL 備份*。
+. 在提示「使用最近的備份還原」時輸入 *n*。
+. 在提示「要從中還原的備份」時輸入備份名稱，然後按 *Enter*。
++
+選定的備份 MySQL 資料庫將還原到其原始位置。
+
+

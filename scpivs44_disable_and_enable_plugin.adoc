@@ -1,0 +1,58 @@
+---
+sidebar: sidebar 
+permalink: scpivs44_disable_and_enable_plugin.html 
+keywords:  
+summary: 如果您不再需要SnapCenter資料保護功能，則必須變更SnapCenter Plug-in for VMware vSphere的設定。例如，如果您在測試環境中部署了插件，則可能需要在該環境中停用SnapCenter功能，並在生產環境中啟用它們。 
+---
+= 停用並啟用SnapCenter Plug-in for VMware vSphere
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+如果您不再需要SnapCenter資料保護功能，則必須變更SnapCenter Plug-in for VMware vSphere的設定。例如，如果您在測試環境中部署了插件，則可能需要在該環境中停用SnapCenter功能，並在生產環境中啟用它們。
+
+.開始之前
+* 您必須具有管理員權限。
+* 確保沒有SnapCenter作業正在運作。
+
+
+.關於此任務
+當您停用適用SnapCenter Plug-in for VMware vSphere時，所有資源組都會被暫停，並且該外掛程式將在 vCenter 中取消註冊為擴充功能。
+
+啟用適用SnapCenter Plug-in for VMware vSphere時，該外掛程式將在 vCenter 中註冊為擴展，所有資源組都處於生產模式，並且所有計劃都已啟用。
+
+.步驟
+. 可選：備份SnapCenter Plug-in for VMware vSphere，以防您想要將其還原到新的虛擬設備。
++
+link:scpivs44_back_up_the_snapcenter_plug-in_for_vmware_vsphere_mysql_database.html["備份SnapCenter Plug-in for VMware vSphere"] 。
+
+. 使用下列格式登入SnapCenter Plug-in for VMware vSphere管理 GUI `\https://<OVA-IP-address>:8080` 。使用部署時設定的管理員使用者名稱和密碼以及使用維護控制台產生的 MFA 令牌登入。
++
+部署外掛程式時，將顯示SnapCenter Plug-in for VMware vSphere的 IP 位址。
+
+. 在左側導覽窗格中選擇“*配置*”，然後取消選擇“*外掛程式詳細資料*”部分中的“服務”選項以停用該外掛程式。
+. 確認您的選擇。
++
+** 如果您只使用適用SnapCenter Plug-in for VMware vSphere來執行虛擬機器一致性備份
++
+該插件已停用，無需採取進一步措施。
+
+** 如果您使用適用SnapCenter Plug-in for VMware vSphere執行應用程式一致性備份
++
+該插件已被停用，需要進一步清理。
+
++
+... 登入 VMware vSphere。
+... 關閉虛擬機器。
+... 在左側導覽器畫面中，以滑鼠右鍵按一下SnapCenter Plug-in for VMware vSphere實例（名稱 `.ova`部署虛擬設備時使用的檔案）並選擇*從磁碟刪除*。
+... 登入SnapCenter並刪除 vSphere 主機。
+
+
+
+
+

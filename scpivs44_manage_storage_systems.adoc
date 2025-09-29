@@ -1,0 +1,58 @@
+---
+sidebar: sidebar 
+permalink: scpivs44_manage_storage_systems.html 
+keywords:  
+summary: 在使用 VMware vSphere 用戶端備份或還原虛擬機器或資料儲存區之前，您必須新增儲存。 
+---
+= 管理儲存系統
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+在使用 VMware vSphere 用戶端備份或還原虛擬機器或資料儲存區之前，您必須新增儲存。
+
+
+
+== 修改儲存虛擬機
+
+您可以使用 VMware vSphere 用戶端修改在SnapCenter Plug-in for VMware vSphere中註冊並用於 VM 資料保護作業的叢集和儲存 VM 的設定。
+
+如果您修改作為叢集的一部分自動新增的儲存虛擬機（有時稱為隱式儲存虛擬機），則該儲存虛擬機將變更為明確儲存虛擬機，並且可以單獨刪除，而無需變更該叢集中的其餘儲存虛擬機。在儲存系統頁面上，當驗證方法是透過憑證時，使用者名稱顯示為 N/A；只有當叢集清單中的明確儲存虛擬機器將 ExplicitSVM 標誌設為 true 時，才會顯示使用者名稱。所有儲存虛擬機器始終列在相關叢集下。
+
+
+IMPORTANT: 如果您使用SnapCenter GUI 為基於應用程式的資料保護作業新增了儲存虛擬機，則必須使用相同的 GUI 來修改這些儲存虛擬機器。
+
+.步驟
+. 在 SCV 外掛程式的左側導覽窗格中，選擇 *儲存系統*。
+. 在*儲存系統*頁面上，選擇要修改的儲存虛擬機，然後選擇*編輯*。
+. 在*編輯儲存系統*視窗中，輸入新值，然後選擇*更新*以套用變更。
+
+
+
+
+== 刪除儲存虛擬機
+
+您可以使用 VMware vSphere 用戶端從 vCenter 中的清單中移除儲存虛擬機器。
+
+
+NOTE: 如果您使用SnapCenter GUI 為基於應用程式的資料保護作業新增了儲存虛擬機，則必須使用相同的 GUI 來修改這些儲存虛擬機器。
+
+.開始之前
+您必須先卸載儲存虛擬機器中的所有資料存儲，然後才能刪除儲存虛擬機器。
+
+.關於此任務
+如果資源組的備份位於您刪除的儲存虛擬機器上，則該資源組的後續備份將會失敗。
+
+.步驟
+. 在 SCV 外掛程式的左側導覽窗格中，選擇 *儲存系統*。
+. 在*儲存系統*頁面上，選擇要刪除的儲存虛擬機，然後選擇*刪除*。
+. 在*刪除儲存系統*確認框中，選取*刪除儲存系統*複選框，然後選擇*是*進行確認。  *注意：*僅支援 ESXi 主機 7.0U1 及更高版本。
++
+link:scpivs44_restart_the_vmware_vsphere_web_client_service.html["重新啟動 VMware vSphere 用戶端服務"] 。
+
+

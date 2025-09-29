@@ -1,0 +1,19 @@
+---
+sidebar: sidebar 
+permalink: scpivs44_get_started_overview.html 
+keywords:  
+summary: 若要使用SnapCenter功能保護虛擬機器上的虛擬機器、資料儲存區和應用程式一致的資料庫，您必須部署SnapCenter Plug-in for VMware vSphere。 
+---
+= 部署概述
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+若要使用SnapCenter功能保護虛擬機器上的虛擬機器、資料儲存區和應用程式一致的資料庫，您必須部署SnapCenter Plug-in for VMware vSphere。
+
+現有SnapCenter用戶必須使用與新SnapCenter用戶不同的部署工作流程。

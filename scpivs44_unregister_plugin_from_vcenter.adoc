@@ -1,0 +1,25 @@
+---
+sidebar: sidebar 
+permalink: scpivs44_unregister_plugin_from_vcenter.html 
+keywords:  
+summary: 如果在處於連結模式的 vCenter 中停止SnapCenter Plug-in for VMware vSphere服務，則資源組在所有連結的 vCenter 中都不可用，即使適用SnapCenter Plug-in for VMware vSphere服務正在其他連結的 vCenter 中執行。您必須手動取消註冊SnapCenter Plug-in for VMware vSphere。 
+---
+= 從 vCenter 取消SnapCenter Plug-in for VMware vSphere
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+如果在處於連結模式的 vCenter 中停止SnapCenter Plug-in for VMware vSphere服務，則資源組在所有連結的 vCenter 中都不可用，即使適用SnapCenter Plug-in for VMware vSphere服務正在其他連結的 vCenter 中執行。
+
+您必須手動取消註冊SnapCenter Plug-in for VMware vSphere。
+
+.步驟
+. 在已停止SnapCenter Plug-in for VMware vSphere服務的連結 vCenter 上，導覽至託管物件參考 (MOB) 管理器。
+. 在屬性選項中，在值列中選擇*content*，然後在下一個畫面中在值列中選擇*ExtensionManager*以顯示已註冊擴充功能的清單。
+. 取消註冊擴充 `com.netapp.scv.client`和 `com.netapp.aegis`。
+

@@ -1,0 +1,63 @@
+---
+sidebar: sidebar 
+permalink: scpivs44_access_the_maintenance_console.html 
+keywords:  
+summary: 您可以使用適用於SnapCenter Plug-in for VMware vSphere的維護控制台來管理應用程式、系統和網路設定。您可以變更管理員密碼、維護密碼、產生支援包並啟動遠端診斷。 
+---
+= 存取維護控制台
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+您可以使用適用SnapCenter Plug-in for VMware vSphere的維護控制台管理您的應用程式、系統和網路設定。您可以變更管理員密碼、維護密碼、產生支援包並啟動遠端診斷。
+
+.開始之前
+在停止並重新啟動SnapCenter Plug-in for VMware vSphere之前，您應該暫停所有方案。
+
+.關於此任務
+* 在SnapCenter Plug-in for VMware vSphere中，首次安裝SnapCenter Plug-in for VMware vSphere時必須指定密碼。如果從版本 4.6 或更早版本升級到版本 4.6P1 或更高版本，則會接受早期的預設密碼。
+* 啟用遠端診斷時，必須為「diag」使用者設定密碼。
++
+若要取得 root 使用者執行命令的權限，請使用 sudo <command>。
+
+
+
+.步驟
+. 從 VMware vSphere 用戶端中，選擇SnapCenter Plug-in for VMware vSphere所在的虛擬機器。
+. 在虛擬設備的「*摘要*」標籤中，選擇「啟動遠端控制台*」以開啟維護控制台視窗。
++
+使用預設維護控制台使用者名稱登入 `maint`以及您在安裝時設定的密碼。
+
++
+image:scpivs44_image11.png["維護控制台視窗"]
+
+. 您可以執行以下操作：
++
+** 選項 1：應用程式配置
++
+顯示SnapCenter Plug-in for VMware vSphere的摘要 啟動或停止SnapCenter Plug-in for VMware vSphere服務 變更適用SnapCenter Plug-in for VMware vSphere的登入使用者名稱或密碼 變更 MySQL 密碼 備份和還原 MySQL，設定和列出 MySQL 備份
+
+** 選項 2：系統配置
++
+重新啟動虛擬機器 關閉虛擬機器 變更「maint」使用者密碼 變更時區 變更 NTP 伺服器 啟用 SSH 存取 增加 jail 磁碟大小 (/jail) 升級 安裝 VMware Tools 產生 MFA 令牌
+
++
+
+NOTE: MFA 始終處於啟用狀態，您無法停用 MFA。
+
+** 選項 3：網路配置
++
+顯示或變更 IP 位址設定 顯示或變更網域名稱搜尋設定 顯示或變更靜態路由 提交變更 Ping 主機
+
+** 選項 4：支持和診斷
++
+產生支援包 存取診斷 shell 啟用遠端診斷存取 產生核心轉儲包
+
+
+
+

@@ -1,0 +1,44 @@
+---
+sidebar: sidebar 
+permalink: scpivs44_modify_the_time_zones.html 
+keywords:  
+summary: 為SnapCenter Plug-in for VMware vSphere資源群組設定備份計畫時，此計畫會自動設定為部署適用SnapCenter Plug-in for VMware vSphere的時區。您可以使用SnapCenter Plug-in for VMware vSphere來修改該時區。 
+---
+= 修改備份的時區
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+:firstname: [.lead]
+:author: [.lead]
+:authorinitials: [
+:authors: [.lead]
+:revnumber: 
+:revdate: the schedule is automatically set for the time zone in which SnapCenter Plug-in for VMware vSphere is deployed. You can modify that time zone by using the SnapCenter Plug-in for VMware vSphere management GUI or maintenance console.
+
+
+.開始之前
+您必須知道SnapCenter Plug-in for VMware vSphere的 IP 位址和登入憑證。您還必須記下從維護控制台產生的 MFA 令牌。
+
+* 部署適用SnapCenter Plug-in for VMware vSphere時顯示 IP 位址。
+* 使用部署SnapCenter Plug-in for VMware vSphere期間提供的或稍後修改的登入憑證。
+* 使用維護控制台系統設定選項產生一個 6 位數的 MFA 令牌。
+
+
+.步驟
+. 登入SnapCenter Plug-in for VMware vSphere管理 GUI。
++
+使用格式 `\https://<appliance-IP-address>:8080`
+
+. 選擇頂部工具列中的“設定”圖示。
++
+image:scpivs44_image28.jpg["SnapCenter Plug-in for VMware vSphere"]
+
+. 在「*設定*」頁面的「*日期和時間*」部分，選擇「*編輯*」。
+. 選擇新的時區並選擇*儲存*。
++
+新的時區將用於SnapCenter Plug-in for VMware vSphere執行的所有備份。
+
+

@@ -1,0 +1,19 @@
+---
+sidebar: sidebar 
+permalink: scpivs44_create_and_import_certificates.html 
+keywords:  
+summary: 'SnapCenter Plug-in for VMware vSphere採用 SSL 加密來與客戶端瀏覽器進行安全通訊。雖然這確實支援透過網路傳輸加密數據，但建立新的自簽名憑證或使用您自己的憑證授權單位 (CA) 基礎架構或第三方 CA 可確保該憑證對於您的環境是唯一的。' 
+---
+= 建立並匯入證書
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+SnapCenter Plug-in for VMware vSphere採用 SSL 加密來與客戶端瀏覽器進行安全通訊。雖然這確實支援透過網路傳輸加密數據，但建立新的自簽名憑證或使用您自己的憑證授權單位 (CA) 基礎架構或第三方 CA 可確保該憑證對於您的環境是唯一的。
+
+參考 https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/SnapCenter/How_to_create_and_or_import_an_SSL_certificate_to_SnapCenter_Plug-in_for_VMware_vSphere_(SCV)["知識庫文章：如何建立 SSL 憑證和/或將 SSL 憑證SnapCenter Plug-in for VMware vSphere"]了解更多。

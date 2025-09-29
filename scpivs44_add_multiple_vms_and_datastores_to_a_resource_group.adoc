@@ -1,0 +1,48 @@
+---
+sidebar: sidebar 
+permalink: scpivs44_add_multiple_vms_and_datastores_to_a_resource_group.html 
+keywords:  
+summary: 您可以使用SnapCenter VMware vSphere 用戶端編輯資源群組精靈將多個資源新增至現有資源群組。 
+---
+= 將多個虛擬機器和資料儲存區新增至資源組
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+使用SnapCenter VMware vSphere 用戶端編輯資源群組精靈，您可以將多個資源新增至現有資源群組。
+
+資源組可以包含以下內容之一：
+
+* 傳統虛擬機器與 SAN 和 NAS 資料儲存的任意組合（不支援 vVol 資料儲存）。
+* 一個FlexGroup資料儲存（不支援跨虛擬機器）。
+* 一個或多個FlexVol資料儲存庫（支援跨虛擬機器）。
+* 一個或多個 vVol 虛擬機器。
+* 所有具有指定 vSphere 標籤的 vVol VM。
+* 指定資料夾中的所有 vVol VM。
+
+
+
+NOTE: 不支援跨多個 vVol 資料儲存的 vVol VM，因為SnapCenter僅在主、選定的 vVol 資料儲存中備份vVols 。
+
+.步驟
+. 在 SCV 外掛程式的左側導覽窗格中，選擇“資源組”，然後選擇資源組，然後選擇image:scpivs44_image39.png["編輯圖示"]*編輯資源組*以啟動精靈。
+. 在「*資源*」頁面上，執行以下操作：
++
+.. 在資料儲存欄位中，導覽至要新增的虛擬機器或資料儲存。
+.. 在可用實體清單中，選擇要新增至資源組的一個或多個虛擬機器或資料儲存區，然後選擇 *>* 將您的選擇移至選取實體清單。選擇 *>>* 移動所有可用實體。
++
+預設情況下，可用實體清單顯示資料中心物件。您可以選擇一個資料儲存體來查看資料儲存內的虛擬機器並將其新增至資源組。
+
++
+當您選擇「*下一步*」時，系統會先檢查SnapCenter是否管理所選虛擬機器或資料儲存所在的儲存空間並與其相容。如果訊息 `Some entities are not SnapCenter compatible`則表示所選的虛擬機器或資料儲存與SnapCenter不相容。請參閱link:scpivs44_create_resource_groups_for_vms_and_datastores.html#manage-compatibility-check-failures["管理相容性檢查失敗"]了解更多。
+
+
+
+. 對要新增的每個虛擬機器或資料儲存區重複步驟 2。
+. 選擇*下一步*直到到達*摘要*頁面，然後查看摘要並選擇*完成*。
+

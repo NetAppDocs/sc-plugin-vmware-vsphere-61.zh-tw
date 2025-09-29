@@ -1,0 +1,36 @@
+---
+sidebar: sidebar 
+permalink: scpivs44_generate_a_support_bundle_from_the_snapcenter_plug-in_for_vmware_vsphere_gui.html 
+keywords:  
+summary: 您可以從SnapCenter Plug-in for VMware vSphere產生支援包。 
+---
+= 從SnapCenter Plug-in for VMware vSphere產生支援包
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+.開始之前
+[role="lead"]
+若要登入適用於SnapCenter Plug-in for VMware vSphere管理 GUI，您必須知道 IP 位址和登入憑證。您還必須記下從維護控制台產生的 MFA 令牌。
+
+* 部署適用SnapCenter Plug-in for VMware vSphere時顯示 IP 位址。
+* 使用部署SnapCenter Plug-in for VMware vSphere期間提供的或稍後修改的登入憑證。
+* 使用維護控制台系統設定選項產生一個 6 位數的 MFA 令牌。
+
+
+.步驟
+. 登入SnapCenter Plug-in for VMware vSphere。
++
+使用格式 `\https://<OVA-IP-address>:8080`。
+
+. 選擇頂部工具列中的“設定”圖示。
++
+image:scpivs44_image10.png["適用於 VMware vSphere 介面的SnapCenter插件"]
+
+. 在「*設定*」頁面的「*支援*」部分中，選擇「*產生支援*套件」。
+. 產生支援包後，選擇提供的連結將包下載到NetApp。
+

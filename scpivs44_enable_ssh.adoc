@@ -1,0 +1,31 @@
+---
+sidebar: sidebar 
+permalink: scpivs44_enable_ssh.html 
+keywords:  
+summary: 部署SnapCenter Plug-in for VMware vSphere時，預設會停用 SSH。 
+---
+= SnapCenter Plug-in for VMware vSphere啟用 SSH
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+部署SnapCenter Plug-in for VMware vSphere時，預設會停用 SSH。
+
+.步驟
+. 從 VMware vSphere 用戶端中，選擇SnapCenter Plug-in for VMware vSphere所在的虛擬機器。
+. 在虛擬設備的「*摘要*」標籤中，選擇「啟動遠端控制台*」以開啟維護控制台窗口，然後登入。
++
+有關存取和登入維護控制台的信息，請參閱link:scpivs44_access_the_maintenance_console.html["存取維護控制台"^]。
+
++
+image:scpivs44_image11.png["維護控制台視窗"]
+
+. 從主選單中，選擇選單選項*2)系統配置*。
+. 從系統設定選單中，選擇選單選項*6)啟用 SSH 存取*，然後在確認提示字元下輸入「*y*」。
+. 等待訊息「啟用 SSH 存取...」然後按 *Enter* 繼續，然後在提示下輸入 *X* 退出維護模式。
+

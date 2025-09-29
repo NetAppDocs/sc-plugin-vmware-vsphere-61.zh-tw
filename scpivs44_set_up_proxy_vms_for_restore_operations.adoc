@@ -1,0 +1,50 @@
+---
+sidebar: sidebar 
+permalink: scpivs44_set_up_proxy_vms_for_restore_operations.html 
+keywords:  
+summary: 如果您想使用代理虛擬機器連接虛擬磁碟以進行客戶檔案還原操作，則必須在開始還原作業之前設定代理虛擬機器。雖然您可以隨時設定代理虛擬機，但在插件部署完成後立即設定可能會更方便。 
+---
+= 設定代理虛擬機器以進行還原操作
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+如果您想使用代理虛擬機器連接虛擬磁碟以進行客戶檔案還原操作，則必須在開始還原作業之前設定代理虛擬機器。雖然您可以隨時設定代理虛擬機，但在插件部署完成後立即設定可能會更方便。
+
+.步驟
+. SnapCenter Plug-in for VMware vSphere in for VMware vSphere *。
+. 在左側導覽中選擇“*Guest File Restore*”。
+. 在「以憑證方式運作」部分中，執行下列其中一項操作：
++
+|===
+| 要做到這一點… | 這樣做… 
+
+
+| 使用現有憑證 | 選擇任何已配置的憑證。 
+
+
+| 新增憑證  a| 
+.. 選擇*新增*。
+.. 在「以憑證執行」對話方塊中，輸入憑證。
+.. 選擇*選擇 VM*，然後在*代理 VM*對話方塊中選擇一個 VM。選擇“*儲存*”返回“*以憑證執行*”對話方塊。
+.. 輸入憑證。對於使用者名，您必須輸入“管理員”。
+
+
+|===
++
+SnapCenter Plug-in for VMware vSphere使用選定的憑證登入選取的代理虛擬機器。
+
++
+執行身分憑證必須是 Windows 提供的預設網域管理員或內建的本機管理員。工作群組使用者可以使用內建的本機管理員帳戶。
+
+. 在「代理憑證」部分中，選擇「新增」以新增要用作代理程式的虛擬機器。
+. 在*代理虛擬機器*對話方塊中，填寫訊息，然後選擇*儲存*。
+
+
+
+NOTE: 您需要先從SnapCenter Plug-in for VMware vSphere中刪除代理虛擬機，然後才能從 ESXi 主機中刪除它。

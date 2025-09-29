@@ -1,0 +1,19 @@
+---
+sidebar: sidebar 
+permalink: scpivs44_quick_start_overview.html 
+keywords:  
+summary: 快速入門文件提供了部署適用SnapCenter Plug-in for VMware vSphere以及啟用適用SnapCenter Plug-in for VMware vSphere的簡明說明。這些說明適用於尚未安裝SnapCenter且只想保護虛擬機器和資料儲存的客戶。 
+---
+= 概況
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+快速入門文件提供了部署適用SnapCenter Plug-in for VMware vSphere以及啟用適用SnapCenter Plug-in for VMware vSphere的簡明說明。這些說明適用於尚未安裝SnapCenter且只想保護虛擬機器和資料儲存的客戶。
+
+開始之前，請參閱link:scpivs44_deployment_planning_and_requirements.html["部署規劃和要求"]。

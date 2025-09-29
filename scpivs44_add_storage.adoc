@@ -1,0 +1,21 @@
+---
+sidebar: sidebar 
+permalink: scpivs44_add_storage.html 
+keywords:  
+summary:  
+---
+= 新增儲存
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+請按照本節中的步驟新增儲存。
+
+. 在 SCV 外掛程式的左側導覽窗格中，選擇 *儲存系統*，然後選擇 *新增* 選項。
+. 在新增儲存系統對話方塊中，輸入基本 SVM 或叢集訊息，然後選擇*新增*。
+

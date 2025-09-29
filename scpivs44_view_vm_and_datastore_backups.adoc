@@ -1,0 +1,33 @@
+---
+sidebar: sidebar 
+permalink: scpivs44_view_vm_and_datastore_backups.html 
+keywords:  
+summary: 當您準備備份或還原虛擬機器或資料儲存區時，您可能想要查看該資源可用的所有備份並查看這些備份的詳細資訊。 
+---
+= 查看虛擬機器和資料儲存區備份
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+在準備備份或還原虛擬機器或資料儲存區時，您可能想要查看該資源可用的所有備份並查看這些備份的詳細資訊。
+
+.關於此任務
+第一次瀏覽大型資料夾（例如 10k 資料夾）可能需要一分鐘或更長。後續瀏覽會話所花費的時間更少。
+
+.步驟
+. 登入 vCenter Server。
+. 導航至*庫存*頁面並選擇資料儲存或虛擬機器。
+. 在右側窗格中，選擇 *設定* > *SnapCenter Plug-in for VMware vSphere* > *備份*。
++
+image:backup-view.png["備份視圖"]
+
++
+如果在政策建立階段未選擇「啟用輔助快照鎖定」選項，則預設採用「啟用主快照鎖定」選項設定的值。在備份清單中，*Secondary Snapshot Lock Expiration* 欄位中的連字符表示主鎖定期和輔助鎖定期相同。
+
+. 選擇您想要查看的備份。
+

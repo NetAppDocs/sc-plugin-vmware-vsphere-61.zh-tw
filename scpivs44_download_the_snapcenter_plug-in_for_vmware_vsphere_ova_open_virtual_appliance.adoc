@@ -1,0 +1,36 @@
+---
+sidebar: sidebar 
+permalink: scpivs44_download_the_snapcenter_plug-in_for_vmware_vsphere_ova_open_virtual_appliance.html 
+keywords:  
+summary: 您可以從NetApp支援網站下載SnapCenter Plug-in for VMware vSphere的 .tar 檔案。 
+---
+= 下載開放虛擬設備 (OVA)
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+在安裝開放虛擬設備 (OVA) 之前，請將憑證新增至 vCenter。  .tar 檔案包含 OVA 和 Entrust Root 和中間證書，這些證書可以在證書資料夾中找到。  VMware vCenter 7u1 及更高版本支援 OVA 部署。
+
+在 VMware vCenter 7.0.3 及更高版本中，Entrust 憑證簽署的 OVA 不再受信任。您需要執行以下步驟來解決該問題。
+
+.步驟
+. 若要下載適用於 VMware 的SnapCenter插件，請執行下列操作：
++
+** 登入NetApp支援站點 ( https://mysupport.netapp.com/products/index.html["https://mysupport.netapp.com/products/index.html"^] ）。
+** 從產品清單中，選擇*SnapCenter Plug-in for VMware vSphere*，然後選擇*下載最新版本*按鈕。
+** 下載SnapCenter Plug-in for VMware vSphere `.tar`文件到任意位置。
+
+
+. 使用 vSphere Client 登入 vCenter Server。
+. 導覽至*管理>證書>證書管理*。
+. 在“受信任的根存儲”旁邊，選擇“新增”
+. 瀏覽並選擇 Entrust Root 和中間憑證的位置。該證書被加入到「*受信任的根證書*」下的面板中。一旦安裝了證書，就可以驗證和部署 OVA。
+
+
+
+NOTE: 如果下載的 OVA 沒有被竄改，則 *Publisher* 欄位顯示 *Trusted certificate*。

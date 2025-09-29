@@ -1,0 +1,47 @@
+---
+sidebar: sidebar 
+permalink: scpivs44_restore_from_backups_overview.html 
+keywords:  
+summary: 您可以從主備份或輔助備份還原虛擬機器、VMDK、檔案和資料夾。 
+---
+= 恢復概述
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+您可以從主備份或輔助備份還原虛擬機器、VMDK、檔案和資料夾。
+
+* 虛擬機器還原目標
++
+您可以將傳統虛擬機器還原至原始主機，或還原至相同 vCenter Server 中的備用主機，或還原至由相同 vCenter 或連結模式下的任何 vCenter 所管理的備用 ESXi 主機。
+
++
+您可以將 vVol VM 還原到原始主機。
+
+* VMDK 恢復目標
++
+您可以將傳統虛擬機器中的 VMDK 還原到原始資料儲存或備用資料儲存。
+
++
+您可以將 vVol VM 中的 VMDK 還原到原始資料儲存。
+
+
+
+您也可以在來賓檔案還原工作階段中還原單一檔案和資料夾，該會話附加虛擬磁碟的備份副本，然後還原選定的檔案或資料夾。
+
+您無法恢復以下內容：
+
+* 資料儲存
++
+您無法使用SnapCenter Plug-in for VMware vSphere來還原資料儲存區，而只能還原資料儲存區中的個別虛擬機器。
+
+* 已移除虛擬機器的備份
++
+您無法還原已刪除的儲存虛擬機器的備份。例如，如果您使用管理 LIF 新增儲存虛擬機，然後建立備份，然後刪除該儲存虛擬機並新增包含相同儲存虛擬機的集群，則備份的還原作業將會失敗。
+
+

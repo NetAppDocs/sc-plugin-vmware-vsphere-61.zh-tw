@@ -1,0 +1,19 @@
+---
+sidebar: sidebar 
+permalink: scpivs44_modify_configuration_default_values.html 
+keywords:  
+summary: '為了提高操作效率，您可以修改 `scbr.override`配置檔案來更改預設值。' 
+---
+= 修改配置預設值
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+為了提高操作效率，您可以修改 `scbr.override`配置檔案來更改預設值。這些值控制設置，例如備份期間建立或刪除的 VMware 快照的數量或備份腳本停止運行之前的時間量。
+
+這 `scbr.override`設定檔由SnapCenter Plug-in for VMware vSphere在支援基於SnapCenter應用程式的資料保護作業的環境中使用。如果此文件不存在，則必須從範本文件建立它。

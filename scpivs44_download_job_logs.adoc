@@ -1,0 +1,39 @@
+---
+sidebar: sidebar 
+permalink: scpivs44_download_job_logs.html 
+keywords:  
+summary: 您可以從SnapCenter VMware vSphere 用戶端儀表板上的「作業監視器」標籤下載作業日誌。 
+---
+= 下載作業日誌
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+您可以從SnapCenter VMware vSphere 用戶端儀表板上的「作業監視器」標籤下載作業日誌。
+
+如果您在使用 VMware vSphere 用戶端時遇到意外行為，您可以使用日誌檔案找出原因並解決問題。
+
+
+NOTE: 保留作業日誌的預設值為 30 天；保留作業的預設值為 90 天。每六小時清除一次超過配置保留期限的作業日誌和作業。您可以使用配置 `jobs/cleanup`REST API 用於修改作業和作業日誌的保留時間。您不能修改清除計劃。
+
+.步驟
+. 從 vCenter 用戶端捷徑頁面中，選擇SnapCenter Plug-in for VMware vSphere。
+. 在 SCV 的左側導覽窗格中，選擇 *Dashboard* > *Job Monitor*。
+. 選擇 Job Monitor 標題列中的下載圖示。
++
+您可能需要向右滾動才能看到圖示。
+
++
+您也可以雙擊某個作業來存取「作業詳細資料」窗口，然後選擇「*下載作業日誌*」。
+
+
+
+.結果
+作業日誌位於部署了適用於SnapCenter Plug-in for VMware vSphere的Linux VM 主機上。預設作業日誌位置是 `/var/log/netapp`。
+
+如果您嘗試下載作業日誌，但錯誤訊息中提到的日誌檔案已被刪除，您可能會遇到以下錯誤： `HTTP ERROR 500 Problem accessing /export-scv-logs` 。若要修正此錯誤，請檢查錯誤訊息中提到的檔案的檔案存取狀態和權限，並修正存取問題。

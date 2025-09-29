@@ -1,0 +1,19 @@
+---
+sidebar: sidebar 
+permalink: scpivs44_deployment_workflow_for_existing_users.html 
+keywords:  
+summary: 如果您是SnapCenter用戶並且擁有SnapCenter備份，則可以使用此工作流程。 
+---
+= 現有使用者的部署工作流程
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+如果您是SnapCenter用戶並且擁有SnapCenter備份，請使用下列工作流程開始。
+
+image:scpivs44_image3.png["部署工作流程"]

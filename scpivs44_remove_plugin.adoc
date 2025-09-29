@@ -1,0 +1,38 @@
+---
+sidebar: sidebar 
+permalink: scpivs44_remove_plugin.html 
+keywords:  
+summary: 如果不再需要使用SnapCenter資料保護功能，則必須停用適用SnapCenter Plug-in for VMware vSphere以將其從 vCenter 中取消註冊，然後從 vCenter 中刪除SnapCenter Plug-in for VMware vSphere，然後手動刪除剩餘檔案。 
+---
+= 刪除SnapCenter Plug-in for VMware vSphere
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+如果不再需要使用SnapCenter資料保護功能，則必須停用適用SnapCenter Plug-in for VMware vSphere以將其從 vCenter 中取消註冊，然後從 vCenter 中刪除SnapCenter Plug-in for VMware vSphere，然後手動刪除剩餘檔案。
+
+.開始之前
+* 您必須具有管理員權限。
+* 確保沒有SnapCenter作業正在運作。
+
+
+.步驟
+. 使用下列格式登入SnapCenter Plug-in for VMware vSphere管理 GUI `\https://<OVA-IP-address>:8080` 。
++
+部署外掛程式時，將顯示SnapCenter Plug-in for VMware vSphere的 IP 位址。
+
+. 在左側導覽窗格中選擇“*配置*”，然後取消選擇“*外掛程式詳細資料*”部分中的“服務”選項以停用該外掛程式。
+. 登入 VMware vSphere。
+. 在左側導覽器畫面中，以滑鼠右鍵按一下SnapCenter Plug-in for VMware vSphere實例（名稱 `.tar`部署虛擬設備時使用的檔案）並選擇*從磁碟刪除*。
+. 如果您使用適用SnapCenter Plug-in for VMware vSphere來支援其他SnapCenter外掛程式進行應用程式一致性備份，請登入SnapCenter並刪除 vSphere 主機。
+
+
+.完成後
+虛擬設備仍在部署，但SnapCenter Plug-in for VMware vSphere已被刪除。
+
+刪除適用SnapCenter Plug-in for VMware vSphere的主機虛擬機器後，該外掛程式可能會繼續列在 vCenter 中，直到本機 vCenter 快取刷新為止。但是，由於該外掛程式已被刪除，因此無法在該主機上執行任何SnapCenter VMware vSphere 操作。如果要重新整理本機 vCenter 快取，請先確保裝置在SnapCenter Plug-in for VMware vSphere設定頁面上處於停用狀態，然後重新啟動 vCenter Web 用戶端服務。

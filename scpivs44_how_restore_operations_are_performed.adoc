@@ -1,0 +1,72 @@
+---
+sidebar: sidebar 
+permalink: scpivs44_how_restore_operations_are_performed.html 
+keywords:  
+summary: '對於 VMFS 環境，SnapCenter Plug-in for VMware vSphere使用 Storage VMotion 的複製和掛載作業來執行還原操作。對於 NFS 環境，該外掛程式使用本機ONTAP單檔SnapRestore (SFSR) 為大多數復原作業提供更高的效率。對於 vVol VM，此插件使用ONTAP單一檔案快照還原和SnapMirror還原進行還原作業。' 
+---
+= 如何執行還原操作
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+對於 VMFS 環境，SnapCenter Plug-in for VMware vSphere使用 Storage VMotion 的複製和掛載作業來執行還原操作。對於 NFS 環境，該外掛程式使用本機ONTAP單檔SnapRestore (SFSR) 為大多數復原作業提供更高的效率。對於 vVol VM，此插件使用ONTAP單一檔案快照還原 (ONTAP SFSR) 和SnapMirror還原進行還原作業。下表列出如何執行還原操作。
+
+|===
+| 恢復操作 | 從 | 使用 
+
+
+| VM 和 VMDK | 主備份 | NFS 環境： ONTAP單一檔案SnapRestore VMFS 環境：使用 Storage VMotion 複製和掛載 
+
+
+| VM 和 VMDK | 輔助備份 | NFS 環境： ONTAP單一檔案SnapRestore VMFS 環境：使用 Storage VMotion 複製和掛載 
+
+
+| 已刪除的虛擬機器和 VMDK | 主備份 | NFS 環境： ONTAP單一檔案SnapRestore VMFS 環境：使用 Storage VMotion 複製和掛載 
+
+
+| 已刪除的虛擬機器和 VMDK | 輔助備份 | NFS 環境：使用 Storage VMotion 進行複製和掛載 VMFS 環境：使用 Storage VMotion 進行複製和掛載 
+
+
+| VM 和 VMDK | VM 一致的主備份 | NFS 環境： ONTAP單一檔案SnapRestore VMFS 環境：使用 Storage VMotion 複製和掛載 
+
+
+| VM 和 VMDK | VM 一致的輔助備份 | NFS 環境： ONTAP SnapMirror恢復 VMFS 環境：使用 Storage VMotion 克隆和掛載 
+
+
+| vVol 虛擬機 | 崩潰一致的主備份 | 適用於所有協定的ONTAP單檔SnapRestore 
+
+
+| vVol 虛擬機 | 崩潰一致的輔助備份 | 適用於所有協定的ONTAP SnapMirror恢復 
+
+
+| FlexGroup虛擬機 | 主備份  a| 
+NFS 環境：* 如果您使用的是ONTAP 9.10.1 及更高版本，則使用ONTAP單檔SnapRestore * 在ONTAP先前版本上使用 Storage VMotion 進行複製和掛載
+
+VMFS 環境：不支援 FlexGroups
+
+
+
+| FlexGroup虛擬機 | 輔助備份  a| 
+NFS 環境：
+
+* 如果您使用的是ONTAP 9.10.1 及更高版本，則需要使用ONTAP SnapMirror還原
+* 使用 Storage VMotion 克隆並掛載ONTAP先前版本
+
+
+VMFS 環境：不支援 FlexGroups
+
+|===
+
+NOTE: vVol 容器重新平衡後，您無法復原 vVol VM。
+
+客戶檔案復原作業是在 NFS 和 VMFS 環境中使用複製和掛載作業（而非 Storage VMotion）執行的。
+
+
+IMPORTANT: 在恢復操作期間，您可能會遇到錯誤 `Host unresolved volumes is null`或者 `Exception while calling pre-restore on SCV….Error mounting cloned LUN as datastore…`當SnapCenter Plug-in for VMware vSphere嘗試重新簽署複製時，就會發生這種情況。由於 VMware 的限制，SnapCenter Plug-in for VMware vSphere無法控制進階 ESXi 主機配置中的自動重新簽署值。對於 NVMe over TCP 和 NVMe over FC 存儲，在新增子系統時，SCV 無法動態新增控制器。您應該在掛載操作之前進行必要的對應。
+
+參考 https://kb.netapp.com/mgmt/SnapCenter/SCV_clone_or_restores_fail_with_error_'Host_Unresolved_volumes_is_null'#["知識庫文章：SCV 複製或還原失敗，並出現錯誤“主機未解析的磁碟區為空”"^]有關該錯誤的更多資訊。

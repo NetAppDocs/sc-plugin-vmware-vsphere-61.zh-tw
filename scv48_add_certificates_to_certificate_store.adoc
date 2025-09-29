@@ -1,0 +1,29 @@
+---
+sidebar: sidebar 
+permalink: scv48_add_certificates_to_certificate_store.html 
+keywords:  
+summary: 將憑證授權單位的根憑證和中間憑證新增至 VMware vCenter，以信任該憑證和使用該憑證簽署的工件。 
+---
+= 將憑證新增至 VMware 憑證存儲
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+在安裝開放虛擬設備 (OVA) 之前，請將憑證新增至 vCenter。  .tar 檔案包含 OVA 和 Entrust Root 和中間證書，這些證書可以在證書資料夾中找到。  VMware vCenter 7u1 及更高版本支援 OVA 部署。
+
+在 VMware vCenter 7.0.3 及更高版本中，Entrust 憑證簽署的 OVA 不再受信任。您需要執行以下步驟來解決該問題。
+
+.步驟
+. 使用 vSphere Client 登入 vCenter Server。
+. 導覽至*管理>證書>證書管理*。
+. 在“受信任的根存儲”旁邊，選擇“新增”
+. 瀏覽並選擇 Entrust Root 和中間憑證的位置。該證書被加入到「*受信任的根證書*」下的面板中。一旦安裝了證書，就可以驗證和部署 OVA。
+
+
+
+NOTE: 如果下載的 OVA 沒有被竄改，則 *Publisher* 欄位顯示 *Trusted certificate*。

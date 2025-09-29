@@ -1,0 +1,50 @@
+---
+sidebar: sidebar 
+permalink: scpivs44_access_rest_apis_using_the_swagger_api_web_page.html 
+keywords:  
+summary: REST API 透過 Swagger 網頁公開。您可以造訪 Swagger 網頁來顯示適用於 VMware vSphere REST API 的SnapCenter伺服器或SnapCenter Plug-in for VMware vSphere，以及手動發出 API 呼叫。使用SnapCenter Plug-in for VMware vSphere對虛擬機器和資料儲存區執行保護作業。 
+---
+= 使用 Swagger API 網頁存取 REST API
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+REST API 透過 Swagger 網頁公開。您可以造訪 Swagger 網頁來顯示SnapCenter伺服器或SnapCenter Plug-in for VMware vSphere，以及手動發出 API 呼叫。使用SnapCenter Plug-in for VMware vSphere對虛擬機器和資料儲存執行操作。
+
+該插件的 Swagger 網頁與SnapCenter Server Swagger 網頁不同。
+
+.開始之前
+對於SnapCenter Plug-in for VMware vSphereREST API，您必須知道適用SnapCenter Plug-in for VMware vSphere的 IP 位址或主機名稱。
+
+
+NOTE: 該插件僅支援用於與第三方應用程式整合的 REST API，不支援 PowerShell cmdlet 或 CLI。
+
+.步驟
+. 從瀏覽器輸入 URL 來存取插件 Swagger 網頁：
++
+`\https://<SCV_IP>:8144/api/swagger-ui/index.html`
+
++
+
+IMPORTANT: 請勿在 REST API URL 中使用以下字元：+,。  ， ％， 和 ＆。
+
++
+.例子
+存取SnapCenter Plug-in for VMware vSphere：
+
++
+`\https://<SCV_IP>:8144/api/swagger-ui/index.html`
+
++
+`\https://OVAhost:8144/api/swagger-ui/index.html`
+
++
+登入使用 vCenter 身份驗證機制產生令牌。
+
+. 選擇 API 資源類型以顯示該資源類型中的 API。
+

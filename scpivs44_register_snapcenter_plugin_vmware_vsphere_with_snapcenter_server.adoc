@@ -1,0 +1,68 @@
+---
+sidebar: sidebar 
+permalink: scpivs44_register_snapcenter_plugin_vmware_vsphere_with_snapcenter_server.html 
+keywords:  
+summary: 如果您想要在SnapCenter中執行基於 VMDK 的應用程式工作流程（針對虛擬化資料庫和檔案系統的基於應用程式的保護工作流程），則必須向SnapCenter伺服器SnapCenter Plug-in for VMware vSphere。 
+---
+= 使用SnapCenter伺服器SnapCenter Plug-in for VMware vSphere
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+如果您想要在SnapCenter中執行基於 VMDK 的應用程式工作流程（針對虛擬化資料庫和檔案系統的基於應用程式的保護工作流程），則必須向SnapCenter伺服器SnapCenter Plug-in for VMware vSphere。
+
+如果您是SnapCenter用戶，並且已升級至SnapCenter 4.2 並將應用程式透過 VMDK 備份移轉到適用於 VMware 的SnapCenter插件，則遷移命令會自動註冊該插件。
+
+.開始之前
+* 您必須執行SnapCenter Server 4.2 或更高版本。
+* 您必須已部署並啟用SnapCenter Plug-in for VMware vSphere。
+
+
+.關於此任務
+* 您可以使用SnapCenter GUI 新增「vsphere」類型主機，並向SnapCenter伺服器SnapCenter Plug-in for VMware vSphere。
++
+連接埠 8144 是預先定義的，SnapCenter Plug-in for VMware vSphere內的通訊。
+
++
+您可以在同一SnapCenter Server 4.2 上註冊SnapCenter Plug-in for VMware vSphere實例，以支援虛擬機器上基於應用程式的資料保護操作。您無法在多個SnapCenter伺服器上SnapCenter Plug-in for VMware vSphere。
+
+* 對於連結模式下的 vCenter，您必須為每個 vCenterSnapCenter Plug-in for VMware vSphere。
+
+
+.步驟
+. 在SnapCenter GUI 左側導覽窗格中，選擇 *Hosts*。
+. 驗證頂部是否選擇了“*託管主機*”選項卡，然後找到虛擬設備主機名稱並驗證它是否從SnapCenter伺服器解析。
+. 選擇“*新增*”以啟動精靈。
+. 在「新增主機」對話方塊中，指定要新增至SnapCenter伺服器的主機，如下表所示：
++
+|===
+| 對於這個領域… | 這樣做… 
+
+
+| 主機類型 | 選擇 *vSphere* 作為主機類型。 
+
+
+| 主機名稱 | 驗證虛擬設備的 IP 位址。 
+
+
+| 憑證 | 輸入部署期間提供的SnapCenter Plug-in for VMware vSphere的使用者名稱和密碼。 
+|===
+. 選擇*提交*。
++
+成功新增 VM 主機後，它將顯示在「受管主機」標籤上。
+
+. 在左側導覽窗格中，選擇“*設定*”，然後選擇“*憑證*”選項卡，然後選擇“*新增*”為虛擬裝置新增憑證。
+. 提供部署SnapCenter Plug-in for VMware vSphere期間指定的憑證資訊。
++
+
+NOTE: 您必須在身份驗證欄位中選擇 Linux。
+
+
+
+.完成後
+如果修改了SnapCenter Plug-in for VMware vSphere，則必須使用SnapCenter託管主機頁面更新SnapCenter伺服器中的註冊。

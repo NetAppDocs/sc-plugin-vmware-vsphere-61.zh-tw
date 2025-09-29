@@ -1,0 +1,25 @@
+---
+sidebar: sidebar 
+permalink: scpivs44_create_resource_groups.html 
+keywords:  
+summary:  
+---
+= 建立資源組
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+請依照下列步驟建立資源組。
+
+. 在 SCV 外掛程式的左側導覽窗格中，選擇 *資源組*，然後選擇 *建立*。
+. 在建立資源群組精靈的每個頁面上輸入所需的信息，選擇要包含在資源組中的虛擬機器和資料存儲，然後選擇要套用於資源組的備份策略。新增遠端二級保護詳細資訊並指定備份計畫。
+
+
+備份會依照為資源組配置的備份策略中指定的方式執行。
+
+您可以從「資源組」頁面選擇以下選項來按需執行備份image:scpivs44_image38.png["播放圖示"]*立即運行*。
