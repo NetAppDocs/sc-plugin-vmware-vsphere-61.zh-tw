@@ -152,9 +152,6 @@ NVMe over TCP 和 NVMe over FC 協定支援的最低軟體需求是：
 
 
 | SnapCenter Plug-in for VMware vSphere）、日誌和 MySQL 資料庫的最小硬碟空間 | 100GB 
-
-
-| 設備中 vmcontrol 服務的最大堆疊大小 | 8GB 
 |===
 
 
