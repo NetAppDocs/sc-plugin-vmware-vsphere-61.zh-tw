@@ -1909,7 +1909,6 @@
   <block id="015b635404a717ebcfa72500098a5d70" category="summary">如果您正在使用SnapCenter Plug-in for VMware vSphere，則可以升級至較新版本。</block>
   <block id="331b48aba7178950c3dc14c31a21f9c0" category="doc">從SnapCenter Plug-in for VMware vSphere的早期版本升級</block>
   <block id="12cbe201763ebb8c3712b94674ec18dc" category="admonition">僅 VMware vCenter Server 7 Update 1 及更高版本支援升級至 SCV 6.1，對於版本 7 Update 1 之前的 VMware vCenter Server，您應該繼續使用 SCV 4.7。對於不支援的 VMware vCenter 伺服器版本，升級會造成中斷。</block>
-  <block id="637f9e5cc0956a7a76dc0a24cefff651" category="paragraph">如果您正在使用適用SnapCenter Plug-in for VMware vSphere，則可以升級至較新版本。升級過程會取消註冊現有插件，並部署僅與 vSphere 7.0U1 及更高版本相容的插件。</block>
   <block id="e614f4fd5db40ad1197def61d63aaeef" category="section-title">升級路徑</block>
   <block id="224ceeb2917402bd6d8dd7a3e2f19e1a" category="cell">如果您使用的是適用SnapCenter Plug-in for VMware vSphere...</block>
   <block id="6f95773fb09a10c0a1a8350183ddd7fd" category="cell">您可以直接將SnapCenter Plug-in for VMware vSphere升級至...</block>
@@ -1931,7 +1930,6 @@
   <block id="d00ac81a0a443883139be6455462a9b5" category="list-text">登入SnapCenter Plug-in for VMware vSphere管理 GUI。部署SnapCenter Plug-in for VMware vSphere時會顯示 IP 位址。</block>
   <block id="a08655c19df01f4238142581122cdafd" category="list-text">在左側導覽窗格中選擇“*配置*”，然後在“插件詳細資料”部分中選擇“*服務*”選項以停用該插件。</block>
   <block id="47ad474a6a92b78b6ce74b61fe8b6bbb" category="list-text">下載升級<block ref="1ba589501f1cc472dfdecac1bd09a624" prefix=" " category="inline-code"></block>文件。</block>
-  <block id="b41450a0b1e390fd09941d73050688f9" category="list-text">登入NetApp支援站點<block ref="82ad09cc2a56a6454a10d6f7b4058c3c" category="inline-link-rx"></block>）。</block>
   <block id="85fbd4a2fc42ed8b114b6cc2f741cdb2" category="list-text">從產品清單中，選擇*SnapCenter Plug-in for VMware vSphere*，然後選擇*下載最新版本*按鈕。</block>
   <block id="7dfb2dcb3c7621537351eac0e0c6d1af" category="list-text">下載SnapCenter Plug-in for VMware vSphere<block ref="1ba589501f1cc472dfdecac1bd09a624" prefix=" " category="inline-code"></block>文件到任意位置。</block>
   <block id="f5b0696bfd02863abb2d114ef575a203" category="list-text">安裝升級。</block>
@@ -2171,4 +2169,10 @@
   <block id="a3d53cfe9124531cb5f9bbfefe704326" category="sidebar">用於修改內建排程的 REST API 工作流程</block>
   <block id="3da6944b1baaec4beb70694ac307fd1f" category="sidebar">升級到同一版本的新補丁</block>
   <block id="04bc8505634cea728bd42022dbbe2763" category="paragraph">如需詳細資訊，請參閱<block ref="3cc65228ae073aa630520717edc687a9" category="inline-link-rx"></block>。</block>
+  <block id="13de5764e6fb4295243673d5d9cc5c32" category="paragraph">升級過程會登出現有外掛，並部署一個僅與 vSphere 7.0U1 及更高版本相容的外掛。</block>
+  <block id="e7cf50365f6cd8b8191b1582a763572f" category="inline-link-macro">SnapCenter Plug-in for VMware vSphere 部署規劃與需求</block>
+  <block id="e265dbaceed2be137ef9239c0c28ca81" category="admonition">升級前，請確認您的環境符合系統需求。詳情請參閱 <block ref="a0e1882159016587140942a1478a5aea" category="inline-link-macro-rx"></block>。</block>
+  <block id="ea3cddf9562a180e930578aed418e68a" category="paragraph">有關支援版本的最新資訊，請參閱<block ref="5719f536bb1181247b912419a3646ab1" category="inline-link-macro-rx"></block>。</block>
+  <block id="8c41baf1ca98e1184f48c4721d44d431" category="inline-link-macro">NetApp 支援網站</block>
+  <block id="9eeb0054bc82844b2782a42bddf7c681" category="list-text">登入 <block ref="fe673711457a0919d053a9db0146aa49" category="inline-link-macro-rx"></block>。</block>
 </blocks>

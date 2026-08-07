@@ -18,12 +18,14 @@ summary: 您可以使用自訂處方和附註作為資料保護操作的一部�
 
 
 
+[[supported-script-types]]
 == 支援的腳本類型
 
 支援 Perl 和 shell 腳本。 Shell 腳本必須以 `!/bin/bash`。(`!/bin/sh`不支援。
 
 
 
+[[script-path-location]]
 == 腳本路徑位置
 
 前腳本和後腳本由適用於SnapCenter Plug-in for VMware vSphere執行。因此，腳本必須位於SnapCenter Plug-in for VMware vSphere中，並具有可執行權限。
@@ -34,6 +36,7 @@ summary: 您可以使用自訂處方和附註作為資料保護操作的一部�
 
 
 
+[[where-to-specify-scripts]]
 == 在哪裡指定腳本
 
 腳本在備份策略中指定。當啟動備份作業時，策略會自動將腳本與正在備份的資源關聯起來。
@@ -42,6 +45,7 @@ summary: 您可以使用自訂處方和附註作為資料保護操作的一部�
 
 
 
+[[when-scripts-are-executed]]
 == 腳本執行時
 
 腳本根據 BACKUP_PHASE 設定的值執行。
@@ -68,6 +72,7 @@ NOTE: 如果後記失敗，則備份成功完成，並發送警告訊息。
 
 
 
+[[environment-variables-passed-to-scripts]]
 == 傳遞給腳本的環境變數
 
 您可以在腳本中使用下表所示的環境變數。
@@ -106,12 +111,14 @@ SUSPENDED`
 |===
 
 
+[[script-timeouts]]
 == 腳本逾時
 
 備份腳本的逾時時間為15分鐘，且無法修改。
 
 
 
+[[example-perl-script-1]]
 == PERL 腳本範例 #1
 
 以下範例 PERL 腳本在執行備份時列印環境變數。
@@ -130,6 +137,7 @@ SUSPENDED`
 
 
 
+[[example-perl-script-2]]
 == PERL 腳本範例 #2
 
 以下範例列印有關備份的資訊。
@@ -159,6 +167,7 @@ SUSPENDED`
 
 
 
+[[example-shell-script]]
 == 範例 shell 腳本
 
 

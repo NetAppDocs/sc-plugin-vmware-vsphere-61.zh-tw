@@ -271,6 +271,7 @@ NOTE: 如果備份中任何虛擬機器的靜默操作失敗，則即使所選�
 
 
 
+[[manage-compatibility-check-failures]]
 == 管理相容性檢查失敗
 
 當您嘗試建立資源組時， SnapCenter會執行相容性檢查。總是參考 https://imt.netapp.com/matrix/imt.jsp?components=134348;&solution=1517&isHWU&src=IMT["NetApp互通性矩陣工具 (IMT)"^]有關SnapCenter支援的最新資訊。不相容的原因可能包括：

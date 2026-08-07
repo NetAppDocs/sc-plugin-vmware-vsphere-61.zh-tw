@@ -20,6 +20,7 @@ summary: 若要使用適用於SnapCenter Plug-in for VMware vSphere對 VMDK 執�
 
 
 
+[[to-attach-vmdks-follow-this-workflow]]
 == 若要連接 VMDK，請遵循以下工作流程：
 
 |===
@@ -45,6 +46,7 @@ NOTE: 若要將 VMDK 附加到不同的 VM，請在 alternativeVmMoref 屬性中
 |===
 
 
+[[to-detach-vmdks-follow-this-workflow]]
 == 要分離 VMDK，請遵循以下工作流程：
 
 |===

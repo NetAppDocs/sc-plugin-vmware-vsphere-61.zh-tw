@@ -20,6 +20,7 @@ summary: 若要使用適用於 VMware vSphere REST API的 SnapCenter Plug-in for
 
 
 
+[[use-the-following-rest-apis-in-the-jobs-section-to-get-detailed-information-on-jobs]]
 == 使用「作業」部分中的以下 REST API 來取得有關作業的詳細資訊：
 
 |===
@@ -33,6 +34,7 @@ summary: 若要使用適用於 VMware vSphere REST API的 SnapCenter Plug-in for
 |===
 
 
+[[use-the-following-rest-api-in-the-jobs-section-to-download-job-logs]]
 == 使用「作業」部分中的以下 REST API 下載作業日誌：
 
 |===
@@ -43,6 +45,7 @@ summary: 若要使用適用於 VMware vSphere REST API的 SnapCenter Plug-in for
 |===
 
 
+[[use-the-following-rest-apis-in-the-reports-section-to-generate-reports]]
 == 使用報告部分中的以下 REST API 來產生報告：
 
 |===

@@ -20,6 +20,7 @@ summary: 為了提高運作效率，可以修改scbr.override設定檔來改變�
 
 
 
+[[create-the-scbr-override-configuration-file]]
 == 建立 scbr.override 設定文件
 
 . 前往 `/opt/netapp/scvservice/standalone_aegis/etc/scbr/scbr.override-template`。
@@ -28,6 +29,7 @@ summary: 為了提高運作效率，可以修改scbr.override設定檔來改變�
 
 
 
+[[properties-you-can-override]]
 == 可以覆蓋的屬性
 
 * 預設情況下，模板使用井號來註解配置屬性。若要使用屬性修改配置值，必須刪除 `#`人物。

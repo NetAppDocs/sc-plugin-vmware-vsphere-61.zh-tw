@@ -21,6 +21,7 @@ NOTE: 資源群組在虛擬儲存控制台 (VSC) 中稱為備份作業。
 
 
 
+[[suspend-and-resume-operations-on-resource-groups]]
 == 暫停和恢復資源組的操作
 
 您可以暫時禁止在資源組上啟動計劃操作。稍後當您需要時，您可以啟用這些操作。
@@ -37,6 +38,7 @@ NOTE: 資源群組在虛擬儲存控制台 (VSC) 中稱為備份作業。
 
 
 
+[[modify-resource-groups]]
 == 修改資源組
 
 您可以在 vCenter 中的資源組中刪除或新增資源、分離或附加策略、修改計劃或修改任何其他資源組選項。
@@ -57,6 +59,7 @@ NOTE: 資源群組在虛擬儲存控制台 (VSC) 中稱為備份作業。
 
 
 
+[[delete-resource-groups]]
 == 刪除資源組
 
 如果不再需要保護資源組中的資源，則可以在 vCenter 中刪除該資源組。在從 vCenter 中刪除SnapCenter Plug-in for VMware vSphere之前，必須確保刪除所有資源組。

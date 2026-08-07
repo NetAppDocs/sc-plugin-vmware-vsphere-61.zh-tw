@@ -41,6 +41,7 @@ summary: 您可以從儀表板要求一個或多個作業的報表。
 
 
 
+[[types-of-reports-from-the-vmware-vsphere-client]]
 == VMware vSphere 用戶端的報表類型
 
 SnapCenter的 VMware vSphere 用戶端提供可自訂的報表選項，為您提供資料保護作業和外掛程式資源狀態的詳細資訊。您只能產生主要保護的報表。

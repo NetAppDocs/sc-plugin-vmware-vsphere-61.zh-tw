@@ -18,12 +18,14 @@ summary: 部署適用SnapCenter Plug-in for VMware vSphere後，您必須完成�
 
 
 
+[[required-operations-after-deployment]]
 == 部署後必要的操作
 
 如果您是新的SnapCenter用戶，則必須先將儲存虛擬機器新增至SnapCenter ，然後才能執行任何資料保護作業。新增儲存虛擬機器時，指定管理 LIF。您也可以新增叢集並指定叢集管理 LIF。有關添加存儲的信息，請參閱link:scpivs44_add_storage_01.html["新增儲存"^]。
 
 
 
+[[deployment-issues-you-might-encounter]]
 == 您可能遇到的部署問題
 
 * 部署虛擬設備後，在下列情況下，儀表板上的「*備份作業*」標籤可能無法載入：
@@ -52,6 +54,7 @@ summary: 部署適用SnapCenter Plug-in for VMware vSphere後，您必須完成�
 
 
 
+[[manage-authentication-errors]]
 == 管理身份驗證錯誤
 
 如果您不使用管理員憑證，部署SnapCenter Plug-in for VMware vSphere或移轉後可能會收到驗證錯誤。如果遇到身份驗證錯誤，則必須重新啟動服務。
@@ -63,6 +66,7 @@ summary: 部署適用SnapCenter Plug-in for VMware vSphere後，您必須完成�
 
 
 
+[[register-snapcenter-plug-in-for-vmware-vsphere-with-snapcenter-server]]
 == 使用SnapCenter伺服器SnapCenter Plug-in for VMware vSphere
 
 如果您想要在SnapCenter中執行基於 VMDK 的應用程式工作流程（針對虛擬化資料庫和檔案系統的基於應用程式的保護工作流程），則必須向SnapCenter伺服器SnapCenter Plug-in for VMware vSphere。

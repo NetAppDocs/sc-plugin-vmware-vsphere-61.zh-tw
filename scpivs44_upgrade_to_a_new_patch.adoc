@@ -24,6 +24,7 @@ summary: 如果要升級到相同版本的新修補程序，則必須在升級�
 
 
 
+[[steps-for-clearing-the-cache]]
 == 清除快取的步驟
 
 . 找到 `vsphere-client-serenity`資料夾，然後找到 `com.netapp.scv.client-<release-number>`資料夾並將其刪除。

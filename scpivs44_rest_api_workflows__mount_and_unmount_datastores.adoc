@@ -20,6 +20,7 @@ summary: 若要使用適用SnapCenter Plug-in for VMware vSphere對資料儲存�
 
 
 
+[[to-mount-datastores-follow-this-workflow]]
 == 若要掛載資料存儲，請遵循以下工作流程：
 
 |===
@@ -46,6 +47,7 @@ availableEsxHosts` | `Get the list of Available Esxi Hosts`取得可用於掛載
 |===
 
 
+[[to-unmount-datastores-follow-this-workflow]]
 == 要卸載資料存儲，請遵循以下工作流程：
 
 |===
