@@ -1448,10 +1448,6 @@
   <block id="e425f4a6b828d90cb52b0122cc580f9e" category="cell"><block ref="02a19238a98a0855ef7a4dee646f2ce9" prefix="" category="inline-code"></block>按需備份資源組。傳遞步驟 1 中的 *resourceGroupId* 和 *policyId*。</block>
   <block id="f1abae2f40d33bbd71a1d0a29cc016cc" category="summary">若要使用適用於SnapCenter Plug-in for VMware vSphere對虛擬機器備份執行還原作業，必須遵循規定的 REST API 呼叫順序。</block>
   <block id="c1634a907000ddd630d2959e055bed59" category="doc">用於復原已刪除虛擬機器的 REST API 工作流程</block>
-  <block id="5b845076b112586b7fff13b10d9f0612" category="cell">前往<block ref="7c61e9e4b133f96dbd184942bce35796" prefix=" " category="inline-code"></block></block>
-  <block id="c40cc36b9154fdd4a91c01ccb09ce903" category="cell">從 VMware 管理物件 URL 中尋找 VM UUID。記下您要還原的 VM 的 *uuid*。</block>
-  <block id="e59122dd4a3b9560e419d80fe5d7705c" category="cell"><block ref="680e278bed5cdf20b100ef3fbfa7a37f" prefix="" category="inline-code"></block></block>
-  <block id="e3d8a902b976f14935a74a07f0a8ff70" category="cell"><block ref="180c60808a741f14fed08ebd47075256" prefix="" category="inline-code"></block>取得指定 VM 的備份清單。傳遞步驟 1 中的 *uuid*。記下您要還原的備份的 *backupId*。</block>
   <block id="eccbc87e4b5ce2fe28308fd9f2a7baf3" category="cell">3</block>
   <block id="1396ed7e5eaba2f2a9d66c52606b7200" category="cell"><block ref="d8e2abe315ab3c4d79dc93692fcdc459" prefix="" category="inline-code"></block></block>
   <block id="1471fa425a9c79f7e8a4a4bc34704d6a" category="cell"><block ref="af62a8975e8577db87448344c585507f" prefix="" category="inline-code"></block>取得指定備份的快照的位置。傳遞步驟 2 中的 *backupId*。注意*snapshotLocationsList*資訊。</block>
@@ -1459,8 +1455,6 @@
   <block id="405a7d9fcc2a16f96442a76dd028bbde" category="cell"><block ref="b46f55ca0f70c8287c9f5c57435507ec" prefix="" category="inline-code"></block></block>
   <block id="1ed4c767960d8b89a9dd8cd0e8369b7c" category="cell"><block ref="cd167a8bf45e589a93aea03099990bf5" prefix="" category="inline-code"></block>取得儲存備份的主機的資訊。注意*availableEsxHostsList*訊息。</block>
   <block id="e4da3b7fbbce2345d7772b0674a318d5" category="cell">5</block>
-  <block id="3a2a882001dd7896eb2b32739b29471d" category="cell"><block ref="acc5e65ecf55336d9dcae6c4b21ff885" prefix="" category="inline-code"></block></block>
-  <block id="7f8c1c53fd7e08fda5762c3337c0bce6" category="cell"><block ref="200347e95ff17482e774ac785275c8ce" prefix="" category="inline-code"></block>恢復指定的備份。傳遞步驟 1 中的 *uuid*。傳遞步驟 2 中的 *backupId*。在 *restoreLocations* 屬性中傳遞步驟 3 和 4 中的資訊。如果虛擬機器備份是部分備份，請設定<block ref="0736c145ca7c004b573fcb3b6242d260" prefix=" " category="inline-code"></block>參數為“false”。  *注意：*您無法還原作為範本的虛擬機器。</block>
   <block id="b28cc44ec7d89a3db43ec0fae8bec76a" category="summary">若要使用適用於SnapCenter Plug-in for VMware vSphere對 VMDK 執行還原操作，必須遵循規定的 REST API 呼叫順序。</block>
   <block id="e4af61e7b7a5732dae774b1e49745727" category="doc">用於恢復 VMDK 的 REST API 工作流程</block>
   <block id="309de2a87bff7ae7c6fdf613c07456cd" category="cell">前往<block ref="7c61e9e4b133f96dbd184942bce35796" prefix=" " category="inline-code"></block></block>
@@ -2175,4 +2169,15 @@
   <block id="ea3cddf9562a180e930578aed418e68a" category="paragraph">有關支援版本的最新資訊，請參閱<block ref="5719f536bb1181247b912419a3646ab1" category="inline-link-macro-rx"></block>。</block>
   <block id="8c41baf1ca98e1184f48c4721d44d431" category="inline-link-macro">NetApp 支援網站</block>
   <block id="9eeb0054bc82844b2782a42bddf7c681" category="list-text">登入 <block ref="fe673711457a0919d053a9db0146aa49" category="inline-link-macro-rx"></block>。</block>
+  <block id="cecbb6d90c269c98fdac515b81e0d73b" category="cell">從 VMware 管理物件 URL 中找到資料儲存 *moref*。記下已刪除 VM 所在的資料儲存的 moref。</block>
+  <block id="f61beb61662c6537a3f0ae8663f661fe" category="cell"><block ref="00dc830fa803616a49708e2e3e3c8b5b" prefix="" category="inline-code"></block></block>
+  <block id="b009dd3584db37104eeb85f282f3ed53" category="cell"><block ref="66205e1770e6dcf2b2bd1b6d83d6e19a" prefix="" category="inline-code"></block> 擷取指定資料儲存區的備份清單。傳遞步驟 1 中的 *moref*。記下您要還原之備份的 *backupId*。</block>
+  <block id="3287b26eea51f72abac4a77e5b4829cd" category="cell"><block ref="f2a41487d6a8e863e610ba88a60bc84f" prefix="" category="inline-code"></block></block>
+  <block id="747eb4264c2de88633140e938e184ca6" category="cell"><block ref="4e49071979e4a204bd91c87e101a1a96" prefix="" category="inline-code"></block> 檢索指定備份的詳細資訊。傳遞步驟 2 中的 *backupId*。在實體清單中，找到與已刪除 VM 相符的 *entityName*，並附註 *UUID*。</block>
+  <block id="1600ae4c16a60cd5ad67ed50a8ba0f1e" category="cell"><block ref="0d42da7d88167ed4dd002c063a3dcb70" prefix="" category="inline-code"></block></block>
+  <block id="796d765a2681401240691e1d250c6fa1" category="cell"><block ref="af62a8975e8577db87448344c585507f" prefix="" category="inline-code"></block> 擷取指定備份的快照位置。傳遞步驟 2 中的 *backupId*。記下 *snapshotLocationsList* 資訊。</block>
+  <block id="ef223d3a6282eb2d29c9050b41c058a6" category="cell"><block ref="17602b67d88fcff6d9024b3d93710f9e" prefix="" category="inline-code"></block></block>
+  <block id="704566d14e7a9a5778c823d1b4ec8f66" category="cell"><block ref="cd167a8bf45e589a93aea03099990bf5" prefix="" category="inline-code"></block> 檢索儲存備份的主機資訊。傳遞步驟 1 中的 *moref*。附註 *availableEsxHostsList* 資訊。</block>
+  <block id="d87a25d74744053d50de6457d00b0f8c" category="cell"><block ref="35fb52fb97add0bf107e8814314da67c" prefix="" category="inline-code"></block></block>
+  <block id="55184688be013eae70732f4a4a8169e3" category="cell"><block ref="42deac4908a17efb438eb8235d8b5154" prefix="" category="inline-code"></block> 還原指定的備份。傳遞步驟 3 中的 *UUID*。傳遞步驟 2 中的 *backupId*。在 *restoreLocations* 屬性中，傳遞步驟 4 中 *snapshotLocationsList* 的資訊；在 *esxHost* 屬性中，傳遞步驟 5 中 *availableEsxHostsList* 的資訊。如果 VM 備份是部分備份，請將<block ref="0736c145ca7c004b573fcb3b6242d260" prefix=" " category="inline-code"></block>參數設為 *false*。*附註：* 您無法還原做為範本的 VM。</block>
 </blocks>
